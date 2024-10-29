@@ -1,0 +1,144 @@
+/* Root Variables */
+:root {
+    --primary-color: #ff007f;
+    --text-color-light: #ddd;
+    --bg-dark: #000;
+    --card-shadow: rgba(0, 0, 0, 0.2);
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text-color-light);
+    background: var(--bg-dark);
+}
+
+.section-bg {
+    background: linear-gradient(135deg, #090a0f, #1c1c30);
+    color: #fff;
+    padding: 2rem 0;
+}
+
+/* Profile Picture Styles */
+.profile-picture {
+    border: 5px solid var(--primary-color);
+    width: 180px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #e60073;
+}
+
+/* Card Styles */
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px var(--card-shadow);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #1c1c30;
+}
+
+.card-title {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 1.25rem;
+    margin: 1rem 0 0;
+}
+
+.card-text {
+    color: var(--text-color-light);
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.card-body p {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+
+/* Contact Section Styles */
+.contact-section {
+    background-color: var(--bg-dark);
+    padding: 3rem 0;
+    color: #fff;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    gap: 10px; /* Adds spacing between the icon and text */
+}
+
+
+.contact-info i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #ff66b2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem;
+    color: #fff;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.contact-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-section p {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
