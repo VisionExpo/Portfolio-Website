@@ -29,6 +29,7 @@
   <!-- Skills Section -->
   <section id="skills" class="py-5 section-bg">
     <div class="container">
+      <h3 class="text-center mb-4">Technical Skills</h3>
       <div class="row">
         <!-- Skill 1: Python -->
         <div class="col-md-3 mb-4">
@@ -138,6 +139,135 @@
           </div>
         </div>
       </div>
+
+      <!-- Machine Learning & Deep Learning -->
+      <h3 class="text-center mb-4 mt-5">Machine Learning & Deep Learning</h3>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="skill-category-card">
+            <h5 class="font-weight-bold">Computer Vision</h5>
+            <ul class="skill-list">
+              <li>Object Detection & Recognition</li>
+              <li>Image Classification</li>
+              <li>Image Segmentation</li>
+              <li>Feature Extraction</li>
+              <li>OpenCV</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="skill-category-card">
+            <h5 class="font-weight-bold">Natural Language Processing</h5>
+            <ul class="skill-list">
+              <li>Text Classification</li>
+              <li>Sentiment Analysis</li>
+              <li>Named Entity Recognition</li>
+              <li>NLTK, spaCy</li>
+              <li>Transformers</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="skill-category-card">
+            <h5 class="font-weight-bold">Deep Learning Architectures</h5>
+            <ul class="skill-list">
+              <li>Convolutional Neural Networks (CNN)</li>
+              <li>Recurrent Neural Networks (RNN)</li>
+              <li>Long Short-Term Memory (LSTM)</li>
+              <li>Generative Adversarial Networks (GAN)</li>
+              <li>Transfer Learning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Science & Analytics -->
+      <h3 class="text-center mb-4 mt-5">Data Science & Analytics</h3>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="skill-category-card">
+            <h5 class="font-weight-bold">Data Preprocessing</h5>
+            <ul class="skill-list">
+              <li>Data Cleaning & Transformation</li>
+              <li>Feature Engineering</li>
+              <li>Dimensionality Reduction</li>
+              <li>Outlier Detection</li>
+              <li>Data Normalization</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="skill-category-card">
+            <h5 class="font-weight-bold">Data Visualization</h5>
+            <ul class="skill-list">
+              <li>Matplotlib</li>
+              <li>Seaborn</li>
+              <li>Plotly</li>
+              <li>Tableau</li>
+              <li>Interactive Dashboards</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="skill-category-card">
+            <h5 class="font-weight-bold">Statistical Analysis</h5>
+            <ul class="skill-list">
+              <li>Hypothesis Testing</li>
+              <li>Regression Analysis</li>
+              <li>Time Series Analysis</li>
+              <li>A/B Testing</li>
+              <li>Exploratory Data Analysis</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cloud & DevOps -->
+      <h3 class="text-center mb-4 mt-5">Cloud & DevOps</h3>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="skill-category-card">
+            <h5 class="font-weight-bold">Cloud Platforms</h5>
+            <ul class="skill-list">
+              <li>AWS (EC2, S3, Lambda)</li>
+              <li>Google Cloud Platform</li>
+              <li>Microsoft Azure</li>
+              <li>Cloud Deployment</li>
+              <li>Serverless Architecture</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="skill-category-card">
+            <h5 class="font-weight-bold">Version Control & CI/CD</h5>
+            <ul class="skill-list">
+              <li>Git & GitHub</li>
+              <li>GitLab</li>
+              <li>Continuous Integration</li>
+              <li>Continuous Deployment</li>
+              <li>Docker</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="skill-category-card">
+            <h5 class="font-weight-bold">MLOps</h5>
+            <ul class="skill-list">
+              <li>Model Deployment</li>
+              <li>Model Monitoring</li>
+              <li>Model Versioning</li>
+              <li>Pipeline Automation</li>
+              <li>ML Workflow Management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -176,6 +306,31 @@
           stagger: 0.1,
           ease: 'power1.out'
         });
+
+        safeAnimate('.skill-category-card', {
+          scrollTrigger: {
+            trigger: '.skill-category-card',
+            start: 'top 80%'
+          },
+          duration: 0.8,
+          opacity: 0,
+          y: 40,
+          stagger: 0.15,
+          ease: 'back.out(1.7)'
+        });
+
+        safeAnimate('.skill-list li', {
+          scrollTrigger: {
+            trigger: '.skill-list',
+            start: 'top 80%'
+          },
+          duration: 0.5,
+          opacity: 0,
+          x: -20,
+          stagger: 0.05,
+          ease: 'power1.out',
+          delay: 0.3
+        });
       }
 
       // Add hover animations to skill cards
@@ -207,6 +362,44 @@
           gsap.to(card.querySelector('h5'), {
             duration: 0.3,
             color: '#212529',
+            ease: 'power1.out'
+          });
+        });
+      });
+
+      // Add hover animations to skill category cards
+      const skillCategoryCards = document.querySelectorAll('.skill-category-card');
+      skillCategoryCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card, {
+            duration: 0.3,
+            y: -10,
+            boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)',
+            ease: 'power2.out'
+          });
+
+          gsap.to(card.querySelectorAll('.skill-list li'), {
+            duration: 0.3,
+            x: 5,
+            color: '#ffffff',
+            stagger: 0.03,
+            ease: 'power1.out'
+          });
+        });
+
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, {
+            duration: 0.3,
+            y: 0,
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+            ease: 'power2.out'
+          });
+
+          gsap.to(card.querySelectorAll('.skill-list li'), {
+            duration: 0.3,
+            x: 0,
+            color: '#ddd',
+            stagger: 0.02,
             ease: 'power1.out'
           });
         });

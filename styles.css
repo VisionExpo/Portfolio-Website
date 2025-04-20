@@ -37,7 +37,7 @@ textarea:focus {
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Assets/Images/About Me/hero-bg.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), #121212;
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -62,7 +62,7 @@ textarea:focus {
 
 /* Page Header */
 .page-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('Assets/Images/About Me/header-bg.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), #0a0a15;
   background-size: cover;
   background-position: center;
   color: white;
@@ -598,6 +598,52 @@ textarea:focus {
 
 .skill-card:hover h5 {
   color: var(--primary-color);
+}
+
+/* Skill Category Card Styles */
+.skill-category-card {
+  background-color: #1c1c30;
+  border-radius: 8px;
+  padding: 25px;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.skill-category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skill-category-card h5 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.skill-list li {
+  padding: 8px 0;
+  color: #ddd;
+  position: relative;
+  padding-left: 20px;
+}
+
+.skill-list li:before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+.skill-list li:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Social Icon Animations */

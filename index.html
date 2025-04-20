@@ -57,30 +57,7 @@
     </div>
   </section>
 
-  <!-- Navigation Links -->
-  <section class="py-5 section-bg">
-    <div class="container">
-      <h2 class="text-center mb-5">Portfolio Navigation</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <div class="nav-buttons text-center">
-            <a href="projects.html" class="btn btn-primary btn-lg m-2">
-              <i class="fas fa-laptop-code mr-2"></i>Projects
-            </a>
-            <a href="skills.html" class="btn btn-primary btn-lg m-2">
-              <i class="fas fa-cogs mr-2"></i>Skills
-            </a>
-            <a href="blogs.html" class="btn btn-primary btn-lg m-2">
-              <i class="fas fa-book-open mr-2"></i>Blogs
-            </a>
-            <a href="contact.html" class="btn btn-primary btn-lg m-2">
-              <i class="fas fa-envelope mr-2"></i>Contact
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-4">
@@ -158,44 +135,11 @@
             ease: 'power2.out'
           });
 
-          // Animate navigation buttons
-          safeAnimate('.nav-buttons .btn', {
-            scrollTrigger: {
-              trigger: '.nav-buttons',
-              start: 'top 80%'
-            },
-            duration: 0.8,
-            opacity: 0,
-            y: 30,
-            stagger: 0.15,
-            ease: 'back.out(1.7)'
-          });
+
         }
       }
 
-      // Add hover animations to navigation buttons
-      const navButtons = document.querySelectorAll('.nav-buttons .btn');
-      navButtons.forEach(btn => {
-        btn.addEventListener('mouseenter', () => {
-          gsap.to(btn, {
-            duration: 0.3,
-            y: -5,
-            scale: 1.05,
-            boxShadow: '0 8px 15px rgba(255, 0, 127, 0.4)',
-            ease: 'power2.out'
-          });
-        });
 
-        btn.addEventListener('mouseleave', () => {
-          gsap.to(btn, {
-            duration: 0.3,
-            y: 0,
-            scale: 1,
-            boxShadow: '0 4px 8px rgba(255, 0, 127, 0.2)',
-            ease: 'power2.out'
-          });
-        });
-      });
     });
   </script>
 </body>
