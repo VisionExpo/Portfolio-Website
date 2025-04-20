@@ -2,6 +2,12 @@
 
 A professional portfolio website showcasing skills, projects, and blogs in AI/ML and software development. Built to provide a clean, interactive experience for visitors, featuring responsive design and user-friendly navigation.
 
+## Live Website
+
+Visit my portfolio website: [https://portfolio-website-ugwq.onrender.com](https://portfolio-website-ugwq.onrender.com)
+
+![Portfolio Screenshot](Assets/Images/portfolio-screenshot.jpg)
+
 ## Project Structure
 
 ```
@@ -62,33 +68,34 @@ python -m http.server 8000
 http://localhost:8000/templates/index.html
 ```
 
-## Deployment on Render
+## Deployment Status
 
-This portfolio website can be easily deployed on Render's free static site hosting:
+### Live Website
 
-1. **Create a Render account**:
-   - Sign up at [render.com](https://render.com)
-   - Connect your GitHub account
+The portfolio website is currently deployed on Render and can be accessed at:
+[https://portfolio-website-ugwq.onrender.com](https://portfolio-website-ugwq.onrender.com)
 
-2. **Create a new Static Site**:
-   - From the Render dashboard, click "New" and select "Static Site"
-   - Connect to your GitHub repository
-   - Use the following settings:
-     - **Name**: portfolio-website (or your preferred name)
-     - **Branch**: main
-     - **Build Command**: (leave empty)
-     - **Publish Directory**: ./
+### Deployment Details
 
-3. **Deploy the site**:
-   - Click "Create Static Site"
-   - Render will automatically deploy your website
-   - You'll get a URL like `https://portfolio-website.onrender.com`
+- **Hosting Platform**: Render (Static Site)
+- **Deployment**: Automatic from GitHub repository
+- **Branch**: main
 
-4. **Custom Domain (Optional)**:
-   - In your site's settings, go to "Custom Domain"
-   - Follow the instructions to add your domain
+The site automatically redeploys whenever changes are pushed to the GitHub repository, ensuring that the live website always reflects the latest updates.
 
-The site will automatically redeploy whenever you push changes to your GitHub repository.
+### Future Updates
+
+To update the website:
+1. Make changes to the local repository
+2. Commit and push to GitHub
+3. Render will automatically deploy the changes (usually within 1-2 minutes)
+
+### Custom Domain (Future Enhancement)
+
+Currently using Render's subdomain, but can be configured with a custom domain by:
+- Adding a custom domain in Render settings
+- Configuring DNS records with the domain registrar
+- Setting up SSL certificate (automatically handled by Render)
 
 ## Contact Form
 
