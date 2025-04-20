@@ -1,0 +1,9 @@
+Please add a screenshot of your portfolio website here named "portfolio-screenshot.jpg".
+
+To create a screenshot:
+1. Visit your live website at https://portfolio-website-ugwq.onrender.com
+2. Take a screenshot of the homepage (use Windows Snipping Tool or PrintScreen)
+3. Crop and save the image as "portfolio-screenshot.jpg"
+4. Place it in this folder (Assets/Images/)
+
+This screenshot will be displayed in your README.md file.

@@ -2,9 +2,9 @@
 
 A professional portfolio website showcasing skills, projects, and blogs in AI/ML and software development. Built to provide a clean, interactive experience for visitors, featuring responsive design and user-friendly navigation.
 
-## Live Website
+## Overview
 
-Visit my portfolio website: [https://portfolio-website-ugwq.onrender.com](https://portfolio-website-ugwq.onrender.com)
+**Live Website:** [https://portfolio-website-ugwq.onrender.com](https://portfolio-website-ugwq.onrender.com)
 
 ![Portfolio Screenshot](Assets/Images/portfolio-screenshot.jpg)
 
