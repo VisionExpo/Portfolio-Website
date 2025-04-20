@@ -259,6 +259,14 @@ body {
 /* Navbar Animation */
 .navbar {
     transition: background-color 0.3s ease;
+    padding: 10px 0;
+}
+
+/* Navbar container */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar.scrolled {
@@ -273,8 +281,18 @@ body {
     border: 1px solid #ff007f;
     border-radius: 20px;
     padding: 5px 15px !important;
-    margin-left: 10px;
+    margin-left: 15px;
     transition: all 0.3s ease;
+}
+
+/* Ensure navbar items are properly aligned */
+.navbar-nav {
+    margin-left: auto;
+}
+
+/* Add some spacing between nav items */
+.navbar-nav .nav-item {
+    margin-left: 5px;
 }
 
 .resume-nav-link:hover {
