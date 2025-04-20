@@ -1,75 +1,72 @@
 // ProjectCard.js - Component for project cards with hover animations
 const ProjectCard = ({ project }) => {
   const cardRef = React.useRef(null);
-  
-  // Set up hover animations
-  React.useEffect(() => {
+
+  // Hover animation handlers
+  const handleMouseEnter = () => {
     const card = cardRef.current;
-    
-    // Create hover animation
-    card.addEventListener('mouseenter', () => {
-      gsap.to(card, {
-        duration: 0.3,
-        y: -10,
-        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)',
-        ease: 'power2.out'
-      });
-      
-      // Animate the image
-      gsap.to(card.querySelector('img'), {
-        duration: 0.5,
-        scale: 1.05,
-        ease: 'power1.out'
-      });
-      
-      // Animate the button
-      gsap.to(card.querySelector('.btn'), {
-        duration: 0.3,
-        scale: 1.05,
-        backgroundColor: '#e60073',
-        ease: 'power1.out'
-      });
+    gsap.to(card, {
+      duration: 0.3,
+      y: -10,
+      boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)',
+      ease: 'power2.out'
     });
-    
-    card.addEventListener('mouseleave', () => {
-      gsap.to(card, {
-        duration: 0.3,
-        y: 0,
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-        ease: 'power2.out'
-      });
-      
-      // Reset the image
-      gsap.to(card.querySelector('img'), {
-        duration: 0.5,
-        scale: 1,
-        ease: 'power1.out'
-      });
-      
-      // Reset the button
-      gsap.to(card.querySelector('.btn'), {
-        duration: 0.3,
-        scale: 1,
-        backgroundColor: '#ff007f',
-        ease: 'power1.out'
-      });
+
+    gsap.to(card.querySelector('img'), {
+      duration: 0.5,
+      scale: 1.05,
+      ease: 'power1.out'
     });
-    
-    // Cleanup event listeners on unmount
-    return () => {
-      card.removeEventListener('mouseenter', () => {});
-      card.removeEventListener('mouseleave', () => {});
-    };
-  }, []);
-  
+
+    gsap.to(card.querySelector('.btn'), {
+      duration: 0.3,
+      scale: 1.05,
+      backgroundColor: '#e60073',
+      ease: 'power1.out'
+    });
+  };
+
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    gsap.to(card, {
+      duration: 0.3,
+      y: 0,
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+      ease: 'power2.out'
+    });
+
+    gsap.to(card.querySelector('img'), {
+      duration: 0.5,
+      scale: 1,
+      ease: 'power1.out'
+    });
+
+    gsap.to(card.querySelector('.btn'), {
+      duration: 0.3,
+      scale: 1,
+      backgroundColor: '#ff007f',
+      ease: 'power1.out'
+    });
+  };
+
   return (
     <div className="col-md-4 mb-4 animated-item project-card">
-      <div className="card" ref={cardRef}>
+      <div
+        className="card"
+        ref={cardRef}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <img src={project.image} className="card-img-top" alt={project.title} />
         <div className="card-body">
           <h5 className="card-title">{project.title}</h5>
           <p className="card-text">{project.description}</p>
-          <a href={project.link} className="btn btn-primary btn-block mt-3" target="_blank">
+          <a
+            href={project.link}
+            className="btn btn-primary btn-block mt-3"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             View Project
           </a>
         </div>

@@ -16,15 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        // Use GSAP for smooth scrolling
-        gsap.to(window, {
-          duration: 1,
-          scrollTo: {
-            y: targetElement,
-            offsetY: 70 // Account for fixed header
-          },
-          ease: 'power2.inOut'
-        });
+        // Use GSAP for smooth scrolling if ScrollToPlugin is registered
+        if (gsap.plugins.ScrollToPlugin) {
+          gsap.to(window, {
+            duration: 1,
+            scrollTo: {
+              y: targetElement,
+              offsetY: 70 // Account for fixed header
+            },
+            ease: 'power2.inOut'
+          });
+        } else {
+          // Fallback to standard scrolling
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       }
     });
   });
@@ -32,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add scroll-triggered animations for page sections
   const animateSections = () => {
     // Register ScrollTrigger plugin if not already registered
-    if (!ScrollTrigger.isRegistered) {
+    if (typeof ScrollTrigger !== 'undefined' && !gsap.plugins.ScrollTrigger) {
       gsap.registerPlugin(ScrollTrigger);
     }
     

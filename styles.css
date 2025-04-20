@@ -18,6 +18,17 @@ body {
   padding-top: 56px; /* Height of navbar */
 }
 
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+  outline-style: dashed;
+  outline-color: var(--primary-color);
+  outline-width: 3px;
+}
+
 /* Section Backgrounds */
 .section-bg {
   background-color: #121212;
@@ -197,7 +208,38 @@ body {
 
 .section-card p {
   color: #aaa;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
+}
+
+/* Section Details Styles */
+.section-details {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.section-details span {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #ddd;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.section-details span:hover {
+  background-color: rgba(255, 0, 127, 0.2);
+  transform: translateY(-2px);
+}
+
+.section-details i {
+  color: var(--primary-color);
+  margin-right: 5px;
+  font-size: 0.8rem;
 }
 
 /* Contact Info Styles */
@@ -220,6 +262,11 @@ body {
   font-size: 1.5rem;
   margin-right: 10px;
   color: var(--primary-color);
+}
+
+.contact-info span {
+  color: white;
+  font-weight: 400;
 }
 
 /* Resume Contact Link */
@@ -360,6 +407,20 @@ body {
   height: 100%;
   background-color: #1c1c30;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure blog section displays all cards */
+#blogs .row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .blog-image-container {
@@ -475,7 +536,33 @@ body {
 /* Project Section Styles */
 #projects .row {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #1c1c30;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body .btn {
+  margin-top: auto;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
 }
 
 /* Project Card Animations */

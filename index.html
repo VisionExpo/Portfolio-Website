@@ -57,49 +57,25 @@
     </div>
   </section>
 
-  <!-- Section Links -->
+  <!-- Navigation Links -->
   <section class="py-5 section-bg">
     <div class="container">
-      <h2 class="text-center mb-5">Explore My Work</h2>
-      <div class="row">
-        <div class="col-md-6 mb-4">
-          <div class="section-card">
-            <div class="section-icon">
-              <i class="fas fa-laptop-code"></i>
-            </div>
-            <h3>Projects</h3>
-            <p>Explore my portfolio of AI and machine learning projects, including computer vision applications, natural language processing systems, and data analysis tools.</p>
-            <a href="projects.html" class="btn btn-primary">View Projects</a>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="section-card">
-            <div class="section-icon">
-              <i class="fas fa-cogs"></i>
-            </div>
-            <h3>Skills</h3>
-            <p>Discover my technical expertise in Python, TensorFlow, PyTorch, and other tools and technologies for AI and machine learning development.</p>
-            <a href="skills.html" class="btn btn-primary">View Skills</a>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="section-card">
-            <div class="section-icon">
-              <i class="fas fa-book-open"></i>
-            </div>
-            <h3>Blogs</h3>
-            <p>Read my articles on Medium about AI, machine learning, and data science topics, where I share insights and knowledge from my experience.</p>
-            <a href="blogs.html" class="btn btn-primary">Read Blogs</a>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="section-card">
-            <div class="section-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <h3>Contact</h3>
-            <p>Get in touch with me to discuss potential collaborations, job opportunities, or just to connect and share ideas about AI and machine learning.</p>
-            <a href="contact.html" class="btn btn-primary">Contact Me</a>
+      <h2 class="text-center mb-5">Portfolio Navigation</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="nav-buttons text-center">
+            <a href="projects.html" class="btn btn-primary btn-lg m-2">
+              <i class="fas fa-laptop-code mr-2"></i>Projects
+            </a>
+            <a href="skills.html" class="btn btn-primary btn-lg m-2">
+              <i class="fas fa-cogs mr-2"></i>Skills
+            </a>
+            <a href="blogs.html" class="btn btn-primary btn-lg m-2">
+              <i class="fas fa-book-open mr-2"></i>Blogs
+            </a>
+            <a href="contact.html" class="btn btn-primary btn-lg m-2">
+              <i class="fas fa-envelope mr-2"></i>Contact
+            </a>
           </div>
         </div>
       </div>
@@ -182,53 +158,41 @@
             ease: 'power2.out'
           });
 
-          // Animate section cards
-          safeAnimate('.section-card', {
+          // Animate navigation buttons
+          safeAnimate('.nav-buttons .btn', {
             scrollTrigger: {
-              trigger: '.section-card',
+              trigger: '.nav-buttons',
               start: 'top 80%'
             },
             duration: 0.8,
             opacity: 0,
-            y: 50,
-            stagger: 0.2,
+            y: 30,
+            stagger: 0.15,
             ease: 'back.out(1.7)'
           });
         }
       }
 
-      // Add hover animations to section cards
-      const sectionCards = document.querySelectorAll('.section-card');
-      sectionCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-          gsap.to(card, {
+      // Add hover animations to navigation buttons
+      const navButtons = document.querySelectorAll('.nav-buttons .btn');
+      navButtons.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+          gsap.to(btn, {
             duration: 0.3,
-            y: -10,
-            boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)',
+            y: -5,
+            scale: 1.05,
+            boxShadow: '0 8px 15px rgba(255, 0, 127, 0.4)',
             ease: 'power2.out'
-          });
-
-          gsap.to(card.querySelector('.section-icon'), {
-            duration: 0.5,
-            scale: 1.1,
-            rotation: 5,
-            ease: 'power1.out'
           });
         });
 
-        card.addEventListener('mouseleave', () => {
-          gsap.to(card, {
+        btn.addEventListener('mouseleave', () => {
+          gsap.to(btn, {
             duration: 0.3,
             y: 0,
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-            ease: 'power2.out'
-          });
-
-          gsap.to(card.querySelector('.section-icon'), {
-            duration: 0.5,
             scale: 1,
-            rotation: 0,
-            ease: 'power1.out'
+            boxShadow: '0 4px 8px rgba(255, 0, 127, 0.2)',
+            ease: 'power2.out'
           });
         });
       });

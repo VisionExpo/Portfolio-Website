@@ -72,15 +72,16 @@ const ContactSection = () => {
         <div className="row justify-content-center">
           {socialMedia.map(social => (
             <div key={social.id} className="col-md-1 mb-3 social-icon-container">
-              <a 
-                href={social.link} 
-                target="_blank" 
-                onMouseEnter={(e) => handleIconHover(e, true)}
-                onMouseLeave={(e) => handleIconHover(e, false)}
-              >
-                <img src={social.icon} alt={social.name} className="social-icon" />
-                <p>{social.name}</p>
-              </a>
+<a 
+  href={social.link} 
+  target="_blank" 
+  rel="noopener noreferrer"
+  onMouseEnter={(e) => handleIconHover(e, true)}
+  onMouseLeave={(e) => handleIconHover(e, false)}
+>
+  <img src={social.icon} alt={social.name} className="social-icon" />
+  <p>{social.name}</p>
+</a>
             </div>
           ))}
         </div>
