@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, redirect, url_for, send_from_directory
+from flask import Flask, request, jsonify, render_template, send_from_directory
 import os
 import smtplib
 from email.mime.text import MIMEText
@@ -22,55 +22,9 @@ def serve_static(subpath):
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Email configuration
-def get_email_config():
-    """Get email configuration from environment variables or config file"""
-    # First try environment variables
-    email = os.environ.get('EMAIL_ADDRESS')
-    password = os.environ.get('EMAIL_PASSWORD')
-
-    # If not set, try to load from config file
-    if not email or not password:
-        try:
-            import json
-            import base64
-            import getpass
-            from cryptography.fernet import Fernet
-            from cryptography.hazmat.primitives import hashes
-            from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-
-            # Check if config file exists
-            if os.path.exists('email_config.json'):
-                with open('email_config.json', 'r') as f:
-                    config = json.load(f)
-
-                email = config.get('email')
-                encrypted_password = config.get('encrypted_password')
-                salt = base64.b64decode(config.get('salt'))
-
-                if email and encrypted_password and salt:
-                    # Get master password to decrypt
-                    master_password = getpass.getpass("Enter your master password to decrypt email credentials: ")
-
-                    # Generate key from master password and salt
-                    kdf = PBKDF2HMAC(
-                        algorithm=hashes.SHA256(),
-                        length=32,
-                        salt=salt,
-                        iterations=100000,
-                    )
-                    key = base64.urlsafe_b64encode(kdf.derive(master_password.encode()))
-
-                    # Decrypt password
-                    f = Fernet(key)
-                    password = f.decrypt(encrypted_password.encode()).decode()
-        except Exception as e:
-            logger.error(f"Error loading email config: {str(e)}")
-
-    return email or 'gorulevishal984@gmail.com', password or ''
-
-# Get email configuration
-EMAIL_ADDRESS, EMAIL_PASSWORD = get_email_config()
+# Email configuration - CHANGE THIS PASSWORD AFTER TESTING
+EMAIL_ADDRESS = 'gorulevishal984@gmail.com'
+EMAIL_PASSWORD = '10621071'  # IMPORTANT: Change this after testing!
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
 
@@ -106,10 +60,10 @@ def submit_form():
         email = request.form.get('email')
         subject = request.form.get('subject', 'Contact Form Submission')
         message = request.form.get('message')
-
+        
         # Log the form submission
         logger.info(f"Form submission received from {name} ({email})")
-
+        
         # Create email content
         email_content = f"""
         <html>
@@ -123,13 +77,13 @@ def submit_form():
         </body>
         </html>
         """
-
+        
         # Send email
         send_email(name, email, subject, email_content)
-
+        
         # Return success response
         return jsonify({"success": True, "message": "Your message has been sent successfully!"})
-
+    
     except Exception as e:
         logger.error(f"Error processing form submission: {str(e)}")
         return jsonify({"success": False, "message": f"An error occurred: {str(e)}"})
@@ -142,33 +96,29 @@ def send_email(sender_name, sender_email, subject, html_content):
         msg['From'] = f"{sender_name} <{EMAIL_ADDRESS}>"
         msg['To'] = EMAIL_ADDRESS
         msg['Subject'] = f"Portfolio Contact: {subject}"
-
+        
         # Add sender's email to the body
         html_content = f"<p><strong>From:</strong> {sender_name} ({sender_email})</p>" + html_content
-
+        
         # Attach HTML content
         msg.attach(MIMEText(html_content, 'html'))
-
+        
         # Connect to SMTP server
         server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
         server.starttls()
         server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-
+        
         # Send email
         server.send_message(msg)
         server.quit()
-
+        
         logger.info(f"Email sent successfully to {EMAIL_ADDRESS}")
         return True
-
+    
     except Exception as e:
         logger.error(f"Failed to send email: {str(e)}")
         raise
 
 if __name__ == '__main__':
-    # Check if email password is set
-    if not EMAIL_PASSWORD:
-        logger.warning("Email password not set! Please set the EMAIL_PASSWORD environment variable.")
-
     # Run the Flask app
     app.run(debug=True, host='0.0.0.0', port=8000)

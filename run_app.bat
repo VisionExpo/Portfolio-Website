@@ -11,9 +11,12 @@ if exist venv\Scripts\activate (
     pip install -r requirements.txt
 )
 
-REM Set environment variables (replace with your actual email and password)
-set EMAIL_ADDRESS=your-email@gmail.com
-set EMAIL_PASSWORD=your-app-password
+REM Set environment variables with your email
+set EMAIL_ADDRESS=gorulevishal984@gmail.com
+
+REM Prompt for password securely
+echo Please enter your app password (it will not be displayed):
+set /p EMAIL_PASSWORD=
 
 REM Run the Flask app
 python app.py
