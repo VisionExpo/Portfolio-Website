@@ -132,6 +132,48 @@ function initAnimations() {
     delay: 0.8
   });
 
+  // Add hover animations to blog cards
+  const blogCards = document.querySelectorAll('.blog-card');
+  blogCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, {
+        duration: 0.3,
+        y: -10,
+        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)',
+        ease: 'power2.out'
+      });
+
+      // Animate the image
+      const img = card.querySelector('img');
+      if (img) {
+        gsap.to(img, {
+          duration: 0.5,
+          scale: 1.05,
+          ease: 'power1.out'
+        });
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        duration: 0.3,
+        y: 0,
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+        ease: 'power2.out'
+      });
+
+      // Reset the image
+      const img = card.querySelector('img');
+      if (img) {
+        gsap.to(img, {
+          duration: 0.5,
+          scale: 1,
+          ease: 'power1.out'
+        });
+      }
+    });
+  });
+
   // Animate contact section
   gsap.from('.contact-info', {
     scrollTrigger: {
@@ -287,7 +329,7 @@ function initAnimations() {
               <a class="nav-link" href="#skills">Skills</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#blogs">Blogs</a>
+              <a class="nav-link" href="blogs.html">Blogs</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blogs - Vishal Gorule</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #ddd;
+    }
+
+    .section-bg {
+      background-color: #121212;
+      padding: 50px 0;
+    }
+
+    .blog-card {
+      border: none;
+      transition: all 0.3s ease;
+      height: 100%;
+      background-color: #1c1c30;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .blog-image-container {
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+      background-color: #151525;
+    }
+
+    .blog-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .blog-card:hover .blog-image-container img {
+      transform: scale(1.1);
+    }
+
+    .blog-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    .blog-meta span {
+      display: flex;
+      align-items: center;
+    }
+
+    .blog-meta i {
+      margin-right: 5px;
+      color: #ff007f;
+    }
+
+    .btn-primary {
+      background-color: #ff007f;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #e60073;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(230, 0, 115, 0.4);
+    }
+
+    .view-all-btn {
+      padding: 10px 25px;
+      border-radius: 30px;
+      border: 2px solid #ff007f;
+      color: #ff007f;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .view-all-btn:hover {
+      background-color: #ff007f;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
+    }
+
+    .view-all-btn i {
+      font-size: 1.2rem;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="section-bg">
+    <div class="container">
+      <h2 class="text-center mb-4">My Blogs</h2>
+      <p class="text-center text-muted mb-5">I share my knowledge and insights about AI, Machine Learning, and Data Science on Medium.</p>
+
+      <div class="row justify-content-center">
+        <!-- Blog Post 1 -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card blog-card">
+            <div class="blog-image-container">
+              <img src="Assets/Images/Blogs/turbocharge_your_neural_network.jpg" class="card-img-top" alt="ReLU Activation Functions" onerror="this.src='https://miro.medium.com/max/1200/1*vkQ0hXDaQv57sALXAJquxA.jpeg'; this.onerror=null;">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Turbocharge Your Neural Networks</h5>
+              <p class="card-text">Discover the top variants of the ReLU activation function and how they can improve your neural network performance.</p>
+              <div class="blog-meta">
+                <span><i class="fas fa-tag"></i> Neural Networks</span>
+              </div>
+              <a href="https://medium.com/pythons-gurus/turbocharge-your-neural-networks-discover-the-top-variants-of-the-relu-activation-function-c6552ef86501" target="_blank" class="btn btn-primary btn-block mt-3">Read on Medium</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card blog-card">
+            <div class="blog-image-container">
+              <img src="Assets/Images/Blogs/Unlocking_secret.jpg" class="card-img-top" alt="Neural Networks" onerror="this.src='https://miro.medium.com/max/1200/1*3fA77_mLNiJTSgZFhYnU0Q.png'; this.onerror=null;">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Unlocking Neural Networks</h5>
+              <p class="card-text">The secret sauce of deep learning: understanding how neural networks work and why they're so powerful.</p>
+              <div class="blog-meta">
+                <span><i class="fas fa-tag"></i> Deep Learning</span>
+              </div>
+              <a href="https://medium.com/pythons-gurus/unlocking-neural-networks-the-secret-sauce-of-deep-learning-b5562218bb4d" target="_blank" class="btn btn-primary btn-block mt-3">Read on Medium</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card blog-card">
+            <div class="blog-image-container">
+              <img src="Assets/Images/Blogs/Mastering_Model_Training.gif" class="card-img-top" alt="ML Optimizers" onerror="this.src='https://miro.medium.com/max/1200/1*mgXvzNcwfpnBawI6XTkVRg.png'; this.onerror=null;">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Mastering Model Training</h5>
+              <p class="card-text">A deep dive into the top 5 optimizers for machine learning and how to choose the right one for your model.</p>
+              <div class="blog-meta">
+                <span><i class="fas fa-tag"></i> Optimizers</span>
+              </div>
+              <a href="https://medium.com/ai-in-plain-english/mastering-model-training-a-deep-dive-into-the-top-5-optimizers-for-machine-learning-a1a48be911fc" target="_blank" class="btn btn-primary btn-block mt-3">Read on Medium</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog Post 4 -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card blog-card">
+            <div class="blog-image-container">
+              <img src="Assets/Images/Blogs/Offline Learning vs Online Learning.jpg" class="card-img-top" alt="Online vs Offline Learning" onerror="this.src='https://miro.medium.com/max/1200/1*Rn_gyQMYVBpqS4YVFwPK2A.jpeg'; this.onerror=null;">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Offline vs Online Learning</h5>
+              <p class="card-text">Unpacking the future of AI training: comparing offline and online learning approaches in machine learning.</p>
+              <div class="blog-meta">
+                <span><i class="fas fa-tag"></i> ML Training</span>
+              </div>
+              <a href="https://medium.com/pythons-gurus/offline-vs-online-learning-in-machine-learning-unpacking-the-future-of-ai-training-34b62fd19054" target="_blank" class="btn btn-primary btn-block mt-3">Read on Medium</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="https://medium.com/@gorulevishal984" target="_blank" class="btn btn-outline-primary view-all-btn">
+          <i class="fab fa-medium"></i> View My Profile on Medium
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
