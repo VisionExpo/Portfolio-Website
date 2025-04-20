@@ -203,35 +203,42 @@ function initAnimations() {
   });
 
   // Add a navbar that changes on scroll
-  const navbar = document.createElement('nav');
-  navbar.className = 'navbar navbar-expand-lg navbar-dark bg-dark fixed-top';
-  navbar.innerHTML = `
-    <div class="container">
-      <a class="navbar-brand" href="#">Vishal Gorule</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#projects">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#skills">Skills</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  `;
+  let navbar;
 
-  // Insert the navbar at the beginning of the body
-  document.body.insertBefore(navbar, document.body.firstChild);
+  // Check if navbar already exists
+  if (!document.querySelector('.navbar')) {
+    navbar = document.createElement('nav');
+    navbar.className = 'navbar navbar-expand-lg navbar-dark bg-dark fixed-top';
+    navbar.innerHTML = `
+      <div class="container">
+        <a class="navbar-brand" href="#">Vishal Gorule</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    `;
+
+    // Insert the navbar at the beginning of the body
+    document.body.insertBefore(navbar, document.body.firstChild);
+  } else {
+    navbar = document.querySelector('.navbar');
+  }
 
   // Change navbar background on scroll
   window.addEventListener('scroll', () => {
