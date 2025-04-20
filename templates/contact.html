@@ -145,31 +145,31 @@
   <!-- Page-specific animations -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Animate contact info using safeAnimate
+      // Animate contact info using safeAnimate - with no opacity change
       if (typeof safeAnimate === 'function') {
         safeAnimate('.contact-info', {
           duration: 0.8,
-          opacity: 0,
-          y: 30,
-          stagger: 0.2,
+          opacity: 1, // Changed from 0 to 1 to prevent fading
+          y: 15,      // Reduced from 30 to 15 for subtler animation
+          stagger: 0.15,
           ease: 'power2.out'
         });
 
-        // Animate social links
+        // Animate social links - with no opacity change
         safeAnimate('.social-link', {
           duration: 0.5,
-          opacity: 0,
-          scale: 0,
+          opacity: 1, // Changed from 0 to 1 to prevent fading
+          scale: 0.95, // Changed from 0 to 0.95 for subtler animation
           stagger: 0.1,
           ease: 'back.out(1.7)',
           delay: 0.4
         });
 
-        // Animate form
+        // Animate form - with no opacity change
         safeAnimate('.contact-form form', {
           duration: 0.8,
-          opacity: 0,
-          y: 50,
+          opacity: 1, // Changed from 0 to 1 to prevent fading
+          y: 20,      // Reduced from 50 to 20 for subtler animation
           ease: 'power2.out',
           delay: 0.6
         });

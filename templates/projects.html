@@ -120,14 +120,14 @@
   <!-- Page-specific animations -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Animate project cards using safeAnimate
+      // Animate project cards using safeAnimate - with no opacity change
       if (typeof safeAnimate === 'function') {
         safeAnimate('.card', {
           duration: 0.8,
-          opacity: 0,
-          y: 50,
-          stagger: 0.2,
-          ease: 'back.out(1.7)'
+          opacity: 1, // Changed from 0 to 1 to prevent fading
+          y: 20,      // Reduced from 50 to 20 for subtler animation
+          stagger: 0.15,
+          ease: 'back.out(1.5)'
         });
       }
 

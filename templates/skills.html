@@ -304,10 +304,10 @@
       if (typeof safeAnimate === 'function') {
         safeAnimate('#skills .col-md-3', {
           duration: 0.6,
-          opacity: 0,
-          y: 30,
-          scale: 0.8,
-          stagger: 0.1,
+          opacity: 1, // Changed from 0 to 1 to prevent fading
+          y: 15,      // Reduced from 30 to 15 for subtler animation
+          scale: 0.95, // Changed from 0.8 to 0.95 for subtler animation
+          stagger: 0.08,
           ease: 'power1.out'
         });
 
@@ -317,10 +317,10 @@
             start: 'top 80%'
           },
           duration: 0.8,
-          opacity: 0,
-          y: 40,
-          stagger: 0.15,
-          ease: 'back.out(1.7)'
+          opacity: 1, // Changed from 0 to 1 to prevent fading
+          y: 20,      // Reduced from 40 to 20 for subtler animation
+          stagger: 0.12,
+          ease: 'back.out(1.5)'
         });
 
         safeAnimate('.skill-list li', {
@@ -329,11 +329,11 @@
             start: 'top 80%'
           },
           duration: 0.5,
-          opacity: 0,
-          x: -20,
-          stagger: 0.05,
+          opacity: 1, // Changed from 0 to 1 to prevent fading
+          x: -10,     // Reduced from -20 to -10 for subtler animation
+          stagger: 0.03,
           ease: 'power1.out',
-          delay: 0.3
+          delay: 0.2  // Reduced from 0.3 to 0.2 for faster appearance
         });
       }
 
