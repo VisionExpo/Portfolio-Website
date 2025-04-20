@@ -66,19 +66,19 @@
               <h4 class="mb-4">Connect With Me</h4>
               <div class="row justify-content-center">
                 <div class="col-md-3 mb-3">
-                  <a href="https://www.linkedin.com" target="_blank" class="social-link">
+                  <a href="https://www.linkedin.com/in/vishal-gorule-a71b0a1b9/" target="_blank" class="social-link">
                     <img src="Assets/Icons/Social Media/linkdln.png" alt="LinkedIn" class="social-icon">
                     <p>LinkedIn</p>
                   </a>
                 </div>
                 <div class="col-md-3 mb-3">
-                  <a href="https://twitter.com" target="_blank" class="social-link">
+                  <a href="https://www.instagram.com/vishal_gorule/" target="_blank" class="social-link">
                     <img src="Assets/Icons/Social Media/insta.jpeg" alt="Instagram" class="social-icon">
-                    <p>Twitter</p>
+                    <p>Instagram</p>
                   </a>
                 </div>
                 <div class="col-md-3 mb-3">
-                  <a href="https://github.com" target="_blank" class="social-link">
+                  <a href="https://github.com/VisionExpo" target="_blank" class="social-link">
                     <img src="Assets/Icons/Social Media/github.png" alt="GitHub" class="social-icon">
                     <p>GitHub</p>
                   </a>
@@ -94,21 +94,50 @@
 
             <div class="contact-form mt-5">
               <h4 class="mb-4">Send Me a Message</h4>
-              <form>
+              <form id="contactForm" onsubmit="return handleFormSubmit(event)">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Your Name" required>
+                  <input type="text" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Your Email" required>
+                  <input type="email" class="form-control" id="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Subject">
+                  <input type="text" class="form-control" id="subject" placeholder="Subject">
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                  <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                <div id="formStatus" class="mt-3" style="display: none;"></div>
               </form>
+
+              <script>
+                function handleFormSubmit(event) {
+                  event.preventDefault();
+
+                  // Get form values
+                  const name = document.getElementById('name').value;
+                  const email = document.getElementById('email').value;
+                  const subject = document.getElementById('subject').value;
+                  const message = document.getElementById('message').value;
+
+                  // In a real application, you would send this data to a server
+                  // For now, we'll just show a success message
+                  const formStatus = document.getElementById('formStatus');
+                  formStatus.style.display = 'block';
+                  formStatus.innerHTML = `<div class="alert alert-success">Thank you, ${name}! Your message has been received. I'll get back to you soon.</div>`;
+
+                  // Reset the form
+                  document.getElementById('contactForm').reset();
+
+                  // Hide the success message after 5 seconds
+                  setTimeout(() => {
+                    formStatus.style.display = 'none';
+                  }, 5000);
+
+                  return false;
+                }
+              </script>
             </div>
           </div>
         </div>
