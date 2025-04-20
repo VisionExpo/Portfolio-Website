@@ -10,7 +10,7 @@ Visit my portfolio website: [https://portfolio-website-ugwq.onrender.com](https:
 
 ## Project Structure
 
-```
+```text
 Portfolio-Website/
 │
 ├── templates/           # Contains all HTML files
@@ -64,7 +64,7 @@ python -m http.server 8000
 
 4. Open your browser and navigate to:
 
-```
+```text
 http://localhost:8000/templates/index.html
 ```
 
@@ -86,6 +86,7 @@ The site automatically redeploys whenever changes are pushed to the GitHub repos
 ### Future Updates
 
 To update the website:
+
 1. Make changes to the local repository
 2. Commit and push to GitHub
 3. Render will automatically deploy the changes (usually within 1-2 minutes)
@@ -93,6 +94,7 @@ To update the website:
 ### Custom Domain (Future Enhancement)
 
 Currently using Render's subdomain, but can be configured with a custom domain by:
+
 - Adding a custom domain in Render settings
 - Configuring DNS records with the domain registrar
 - Setting up SSL certificate (automatically handled by Render)
@@ -106,6 +108,7 @@ The contact form uses Formspree to handle form submissions:
 3. No server-side code or email configuration is needed
 
 For more details, see the documentation in the `form-setup` folder, which includes:
+
 - Setup instructions
 - Troubleshooting guide
 - Test form for verification
@@ -121,6 +124,8 @@ For more details, see the documentation in the `form-setup` folder, which includ
 
 ## Contact
 
-- Email: gorulevishal984@gmail.com
-- Phone: +91 9172838972
+- Email: [gorulevishal984@gmail.com](mailto:gorulevishal984@gmail.com)
+- LinkedIn: [linkedin.com/in/vishal-gorule](https://www.linkedin.com/in/vishal-gorule/)
+- GitHub: [github.com/VisionExpo](https://github.com/VisionExpo)
+- Instagram: [instagram.com/vishu_gorule_0909](https://www.instagram.com/vishu_gorule_0909/)
 - Location: Pune, Maharashtra, India
