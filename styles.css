@@ -1,449 +1,560 @@
 /* Root Variables */
 :root {
-    --primary-color: #ff007f;
-    --text-color-light: #ddd;
-    --bg-dark: #000;
-    --card-shadow: rgba(0, 0, 0, 0.2);
-    --transition-speed: 0.3s;
-    --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --primary-color: #ff007f;
+  --text-color-light: #ddd;
+  --bg-dark: #000;
+  --card-shadow: rgba(0, 0, 0, 0.2);
+  --transition-speed: 0.3s;
+  --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    color: var(--text-color-light);
-    background: var(--bg-dark);
-    overflow-x: hidden; /* Prevent horizontal scroll during animations */
-    scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+  color: var(--text-color-light);
+  background: var(--bg-dark);
+  overflow-x: hidden; /* Prevent horizontal scroll during animations */
+  scroll-behavior: smooth;
+  padding-top: 56px; /* Height of navbar */
 }
 
-/* Add padding for fixed navbar */
-body {
-    padding-top: 56px; /* Height of navbar */
-}
-
+/* Section Backgrounds */
 .section-bg {
-    background: linear-gradient(135deg, #090a0f, #1c1c30);
-    color: #fff;
-    padding: 2rem 0;
+  background-color: #121212;
+  padding: 50px 0;
 }
 
-/* Profile Picture Styles */
-.profile-picture {
-    border: 5px solid var(--primary-color);
-    width: 180px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 50%;
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Assets/Images/About Me/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 0, 127, 0.3) 0%, transparent 70%);
+  opacity: 0.5;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Page Header */
+.page-header {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('Assets/Images/About Me/header-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 80px 0;
+  position: relative;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 0, 127, 0.2) 0%, transparent 70%);
+  opacity: 0.7;
+}
+
+.page-header .container {
+  position: relative;
+  z-index: 1;
 }
 
 /* Button Styles */
 .btn-primary {
-    background-color: var(--primary-color);
-    border: none;
-    transition: all 0.3s ease;
+  background-color: var(--primary-color);
+  border: none;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #e60073;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(230, 0, 115, 0.4);
+  background-color: #e60073;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(230, 0, 115, 0.4);
 }
 
 /* Resume Button Styles */
 .resume-btn {
-    padding: 12px 24px !important;
-    font-weight: bold !important;
-    border-radius: 30px !important;
-    position: relative !important;
-    overflow: hidden !important;
-    z-index: 1 !important;
-    background-color: #ff007f !important;
-    border: 2px solid #ff007f !important;
-    color: white !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-    box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4) !important;
-    transition: all 0.3s ease !important;
-    display: inline-block !important;
+  padding: 12px 24px !important;
+  font-weight: bold !important;
+  border-radius: 30px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+  background-color: #ff007f !important;
+  border: 2px solid #ff007f !important;
+  color: white !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4) !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
 }
 
 .resume-btn:hover {
-    background-color: #e60073 !important;
-    transform: translateY(-5px) !important;
-    box-shadow: 0 8px 25px rgba(255, 0, 127, 0.5) !important;
+  background-color: #e60073 !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 25px rgba(255, 0, 127, 0.5) !important;
 }
 
 .resume-btn::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: -100% !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
-    transition: all 0.6s ease !important;
-    z-index: -1 !important;
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+  transition: all 0.6s ease !important;
+  z-index: -1 !important;
 }
 
 .resume-btn:hover::before {
-    left: 100% !important;
+  left: 100% !important;
 }
 
 .resume-btn i {
-    margin-right: 8px !important;
-    font-size: 1.2em !important;
+  margin-right: 8px !important;
+  font-size: 1.2em !important;
+}
+
+/* Profile Picture */
+.profile-picture {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border: 5px solid var(--primary-color);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 /* Card Styles */
 .card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 8px var(--card-shadow);
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #1c1c30;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 0 auto; /* Center cards horizontally */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px var(--card-shadow);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1c1c30;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto; /* Center cards horizontally */
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Project Section Styles */
-#projects .row {
-    display: flex;
-    justify-content: center;
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
 }
 
-.card-title {
-    color: var(--primary-color);
-    text-align: center;
-    font-size: 1.25rem;
-    margin: 1rem 0 0;
+/* Section Card Styles */
+.section-card {
+  background-color: #1c1c30;
+  border-radius: 8px;
+  padding: 30px;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
-.card-text {
-    color: var(--text-color-light);
-    text-align: center;
-    font-size: 0.9rem;
-    padding: 0.5rem;
+.section-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+.section-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
 }
 
-.card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem;
+.section-card h3 {
+  color: white;
+  margin-bottom: 15px;
 }
 
-.card-body p {
-    text-align: center;
-    margin-top: 0.5rem;
+.section-card p {
+  color: #aaa;
+  margin-bottom: 25px;
 }
 
-
-/* Contact Section Styles */
-.contact-section {
-    background-color: var(--bg-dark);
-    padding: 3rem 0;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Add a subtle background animation */
-.contact-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(255, 0, 127, 0.1) 0%, transparent 70%);
-    opacity: 0.5;
-    z-index: 0;
-    animation: pulse 8s infinite alternate;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.3; }
-    100% { transform: scale(1.5); opacity: 0.7; }
-}
-
-.contact-section h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
+/* Contact Info Styles */
 .contact-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    margin: 1rem 0;
-    gap: 10px; /* Adds spacing between the icon and text */
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
+.contact-info:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
 
 .contact-info i {
-    font-size: 1.5rem;
-    margin-right: 10px;
-    color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-right: 10px;
+  color: var(--primary-color);
 }
 
 /* Resume Contact Link */
 .resume-contact-link a {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 20px;
-    background-color: rgba(255, 0, 127, 0.2);
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    border: 1px solid var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  background-color: rgba(255, 0, 127, 0.2);
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--primary-color);
 }
 
 .resume-contact-link a:hover {
-    background-color: rgba(255, 0, 127, 0.4);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
-    text-decoration: none;
+  background-color: rgba(255, 0, 127, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
+  text-decoration: none;
 }
 
 .resume-contact-link i {
-    font-size: 1.3rem;
-    margin-right: 10px;
-    color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-right: 10px;
+  color: var(--primary-color);
 }
 
 .resume-contact-link span {
-    font-weight: bold;
-    letter-spacing: 0.5px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
+/* Social Icons */
 .social-icon {
-    width: 50px;
-    height: 50px;
-    background-color: #ff66b2;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0.5rem;
-    color: #fff;
-    transition: opacity 0.3s ease;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.3s ease;
 }
 
-.social-icon:hover {
-    filter: brightness(1.2);
-    transform: scale(1.1);
-    transition: all 0.3s ease;
+/* Contact Section */
+.contact-section {
+  background-color: var(--bg-dark);
+  padding: 3rem 0;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.contact-section a {
-    color: #fff;
-    text-decoration: none;
+/* Add a subtle background animation */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 0, 127, 0.1) 0%, transparent 70%);
+  opacity: 0.5;
+  z-index: 0;
+  animation: pulse 8s infinite alternate;
 }
 
-.contact-section p {
-    font-size: 0.9rem;
-    font-weight: bold;
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.3; }
+  100% { transform: scale(1.5); opacity: 0.7; }
 }
 
-/* Animation Styles */
-.animated-item {
-    transition: transform var(--transition-speed) var(--animation-easing),
-               opacity var(--transition-speed) var(--animation-easing);
+/* Contact Card */
+.contact-card {
+  background-color: #1c1c30;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Navbar Animation */
-.navbar {
-    transition: background-color 0.3s ease;
-    padding: 10px 0;
+.social-links {
+  margin-top: 30px;
 }
 
-/* Navbar container */
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.social-link {
+  display: block;
+  padding: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: white;
+  text-decoration: none;
 }
 
-.navbar.scrolled {
-    background-color: rgba(0, 0, 0, 0.95) !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+.social-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-5px);
+  text-decoration: none;
+  color: white;
 }
 
-/* Resume Nav Link */
-.resume-nav-link {
-    color: #ff007f !important;
-    font-weight: bold !important;
-    border: 1px solid #ff007f;
-    border-radius: 20px;
-    padding: 5px 15px !important;
-    margin-left: 15px;
-    transition: all 0.3s ease;
+.social-link img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
 }
 
-/* Ensure navbar items are properly aligned */
-.navbar-nav {
-    margin-left: auto;
+.social-link:hover img {
+  transform: scale(1.1) rotate(5deg);
 }
 
-/* Add some spacing between nav items */
-.navbar-nav .nav-item {
-    margin-left: 5px;
+/* Contact Form */
+.contact-form {
+  margin-top: 40px;
 }
 
-.resume-nav-link:hover {
-    background-color: #ff007f !important;
-    color: white !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(255, 0, 127, 0.3);
+.form-control {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 12px 15px;
+  margin-bottom: 20px;
 }
 
-/* Project Card Animations */
-.project-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 2px rgba(255, 0, 127, 0.5);
+  color: white;
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.project-card img {
-    transition: transform 0.5s ease;
-}
-
-.project-card:hover img {
-    transform: scale(1.05);
-}
-
-/* Skill Card Animations */
-.skill-card img {
-    transition: transform 0.4s ease;
-}
-
-.skill-card:hover img {
-    transform: scale(1.1) rotate(10deg);
-}
-
-.skill-card h5 {
-    transition: color 0.3s ease;
-}
-
-.skill-card:hover h5 {
-    color: var(--primary-color);
-}
-
-/* Social Icon Animations */
-.social-icon-container {
-    transition: transform 0.3s ease;
-}
-
-.social-icon-container:hover {
-    transform: translateY(-5px);
+.form-control::placeholder {
+  color: #aaa;
 }
 
 /* Blog Card Styles */
 .blog-card {
-    border: none;
-    transition: all 0.3s ease;
-    height: 100%;
-    background-color: #1c1c30;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  transition: all 0.3s ease;
+  height: 100%;
+  background-color: #1c1c30;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .blog-image-container {
-    height: 180px;
-    overflow: hidden;
-    position: relative;
-    background-color: #151525;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+  background-color: #151525;
 }
 
 .blog-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .blog-card:hover .blog-image-container img {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .blog-meta {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    font-size: 0.8rem;
-    color: #aaa;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #aaa;
 }
 
 .blog-meta span {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .blog-meta i {
-    margin-right: 5px;
-    color: var(--primary-color);
+  margin-right: 5px;
+  color: var(--primary-color);
 }
 
 .view-all-btn {
-    padding: 10px 25px;
-    border-radius: 30px;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    font-weight: bold;
-    transition: all 0.3s ease;
-    margin-top: 20px;
+  padding: 10px 25px;
+  border-radius: 30px;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-top: 20px;
 }
 
 .view-all-btn:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
 }
 
 .view-all-btn i {
-    font-size: 1.2rem;
-    margin-right: 8px;
+  font-size: 1.2rem;
+  margin-right: 8px;
+}
+
+/* Animation Styles */
+.animated-item {
+  transition: transform var(--transition-speed) var(--animation-easing),
+             opacity var(--transition-speed) var(--animation-easing);
+}
+
+/* Navbar Animation */
+.navbar {
+  transition: background-color 0.3s ease;
+  padding: 10px 0;
+}
+
+/* Navbar container */
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Resume Nav Link */
+.resume-nav-link {
+  color: #ff007f !important;
+  font-weight: bold !important;
+  border: 1px solid #ff007f;
+  border-radius: 20px;
+  padding: 5px 15px !important;
+  margin-left: 15px;
+  transition: all 0.3s ease;
+}
+
+.resume-nav-link:hover {
+  background-color: #ff007f !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 0, 127, 0.3);
+}
+
+/* Ensure navbar items are properly aligned */
+.navbar-nav {
+  margin-left: auto;
+}
+
+/* Add some spacing between nav items */
+.navbar-nav .nav-item {
+  margin-left: 5px;
+}
+
+/* Project Section Styles */
+#projects .row {
+  display: flex;
+  justify-content: center;
+}
+
+/* Project Card Animations */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.project-card img {
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Skill Card Animations */
+.skill-card img {
+  transition: transform 0.4s ease;
+}
+
+.skill-card:hover img {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.skill-card h5 {
+  transition: color 0.3s ease;
+}
+
+.skill-card:hover h5 {
+  color: var(--primary-color);
+}
+
+/* Social Icon Animations */
+.social-icon-container {
+  transition: transform 0.3s ease;
+}
+
+.social-icon-container:hover {
+  transform: translateY(-5px);
 }
 
 /* Page Transition Animations */
 .fade-in {
-    animation: fadeIn 1s ease forwards;
+  animation: fadeIn 1s ease forwards;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Scroll Animation Helper Classes */
 .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 
 .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer Styles */
+footer {
+  background-color: #0a0a15;
+  padding: 30px 0;
+}
+
+footer a {
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--primary-color) !important;
+  text-decoration: none;
 }

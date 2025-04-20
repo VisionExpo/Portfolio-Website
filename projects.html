@@ -7,7 +7,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Styles CSS -->
-  <link rel="stylesheet" href="styles_new.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- GSAP for animations -->
@@ -111,19 +111,21 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <!-- Animation Script -->
-  <script src="animations_new.js"></script>
+  <script src="animations.js"></script>
 
   <!-- Page-specific animations -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Animate project cards
-      gsap.from('.card', {
-        duration: 0.8,
-        opacity: 0,
-        y: 50,
-        stagger: 0.2,
-        ease: 'back.out(1.7)'
-      });
+      // Animate project cards using safeAnimate
+      if (typeof safeAnimate === 'function') {
+        safeAnimate('.card', {
+          duration: 0.8,
+          opacity: 0,
+          y: 50,
+          stagger: 0.2,
+          ease: 'back.out(1.7)'
+        });
+      }
 
       // Add hover animations to project cards
       const projectCards = document.querySelectorAll('.card');

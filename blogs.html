@@ -9,7 +9,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-  <link rel="stylesheet" href="styles_new.css">
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -196,6 +196,73 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <!-- Animation Script -->
-  <script src="animations_new.js"></script>
+  <script src="animations.js"></script>
+
+  <!-- Page-specific animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animate blog cards using safeAnimate
+      if (typeof safeAnimate === 'function') {
+        safeAnimate('.blog-card', {
+          duration: 0.8,
+          opacity: 0,
+          y: 50,
+          stagger: 0.2,
+          ease: 'back.out(1.7)'
+        });
+
+        safeAnimate('.view-all-btn', {
+          duration: 0.6,
+          opacity: 0,
+          y: 20,
+          scale: 0.9,
+          ease: 'power2.out',
+          delay: 0.8
+        });
+      }
+
+      // Add hover animations to blog cards
+      const blogCards = document.querySelectorAll('.blog-card');
+      if (blogCards.length > 0) {
+        blogCards.forEach(card => {
+          card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+              duration: 0.3,
+              y: -10,
+              boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)',
+              ease: 'power2.out'
+            });
+
+            const img = card.querySelector('img');
+            if (img) {
+              gsap.to(img, {
+                duration: 0.5,
+                scale: 1.05,
+                ease: 'power1.out'
+              });
+            }
+          });
+
+          card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+              duration: 0.3,
+              y: 0,
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+              ease: 'power2.out'
+            });
+
+            const img = card.querySelector('img');
+            if (img) {
+              gsap.to(img, {
+                duration: 0.5,
+                scale: 1,
+                ease: 'power1.out'
+              });
+            }
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html>

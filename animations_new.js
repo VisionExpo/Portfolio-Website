@@ -1,25 +1,36 @@
 // animations.js - Add animations and navigation to all pages
 
+// Helper function to safely animate elements
+function safeAnimate(selector, animation) {
+  const elements = document.querySelectorAll(selector);
+  if (elements && elements.length > 0) {
+    return gsap.from(elements, animation);
+  } else {
+    console.log(`Elements not found for selector: ${selector}`);
+    return null;
+  }
+}
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize GSAP
   if (typeof gsap !== 'undefined') {
     console.log('GSAP loaded successfully');
-    
+
     // Register plugins if available
     if (typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
       console.log('ScrollTrigger registered');
     }
-    
+
     if (typeof ScrollToPlugin !== 'undefined') {
       gsap.registerPlugin(ScrollToPlugin);
       console.log('ScrollToPlugin registered');
     }
-    
+
     // Add a navbar that changes on scroll
     addNavbar();
-    
+
     // Change navbar background on scroll
     window.addEventListener('scroll', () => {
       const navbar = document.querySelector('.navbar');
@@ -31,15 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-    
+
     // Add smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        
+
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-        
+
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           // Use GSAP for smooth scrolling if ScrollToPlugin is available
@@ -73,10 +84,10 @@ function addNavbar() {
   if (!document.querySelector('.navbar')) {
     const navbar = document.createElement('nav');
     navbar.className = 'navbar navbar-expand-lg navbar-dark bg-dark fixed-top';
-    
+
     // Get current page filename
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
+
     navbar.innerHTML = `
       <div class="container">
         <a class="navbar-brand" href="index.html">Vishal Gorule</a>
@@ -109,7 +120,7 @@ function addNavbar() {
         </div>
       </div>
     `;
-    
+
     // Insert the navbar at the beginning of the body
     document.body.insertBefore(navbar, document.body.firstChild);
   }

@@ -131,67 +131,71 @@
   <!-- Page-specific animations -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Animate hero section
-      gsap.from('#hero h1', {
-        duration: 1,
-        opacity: 0,
-        y: -50,
-        ease: 'power3.out'
-      });
+      // Animate hero section using safeAnimate
+      if (typeof safeAnimate === 'function') {
+        safeAnimate('#hero h1', {
+          duration: 1,
+          opacity: 0,
+          y: -50,
+          ease: 'power3.out'
+        });
 
-      gsap.from('#hero p', {
-        duration: 1,
-        opacity: 0,
-        y: 30,
-        ease: 'power3.out',
-        delay: 0.3
-      });
+        safeAnimate('#hero p', {
+          duration: 1,
+          opacity: 0,
+          y: 30,
+          ease: 'power3.out',
+          delay: 0.3
+        });
 
-      gsap.from('#hero .hero-buttons', {
-        duration: 1,
-        opacity: 0,
-        y: 30,
-        ease: 'power3.out',
-        delay: 0.6
-      });
+        safeAnimate('#hero .hero-buttons', {
+          duration: 1,
+          opacity: 0,
+          y: 30,
+          ease: 'power3.out',
+          delay: 0.6
+        });
 
-      // Animate about section
-      gsap.from('.profile-picture', {
-        scrollTrigger: {
-          trigger: '#about',
-          start: 'top 80%'
-        },
-        duration: 1.2,
-        opacity: 0,
-        scale: 0.8,
-        rotation: 10,
-        ease: 'power3.out'
-      });
+        // Animate about section
+        if (typeof ScrollTrigger !== 'undefined') {
+          safeAnimate('.profile-picture', {
+            scrollTrigger: {
+              trigger: '#about',
+              start: 'top 80%'
+            },
+            duration: 1.2,
+            opacity: 0,
+            scale: 0.8,
+            rotation: 10,
+            ease: 'power3.out'
+          });
 
-      gsap.from('#about h3, #about p', {
-        scrollTrigger: {
-          trigger: '#about',
-          start: 'top 80%'
-        },
-        duration: 1,
-        opacity: 0,
-        y: 30,
-        stagger: 0.2,
-        ease: 'power2.out'
-      });
+          safeAnimate('#about h3, #about p', {
+            scrollTrigger: {
+              trigger: '#about',
+              start: 'top 80%'
+            },
+            duration: 1,
+            opacity: 0,
+            y: 30,
+            stagger: 0.2,
+            ease: 'power2.out'
+          });
 
-      // Animate section cards
-      gsap.from('.section-card', {
-        scrollTrigger: {
-          trigger: '.section-card',
-          start: 'top 80%'
-        },
-        duration: 0.8,
-        opacity: 0,
-        y: 50,
-        stagger: 0.2,
-        ease: 'back.out(1.7)'
-      });
+          // Animate section cards
+          safeAnimate('.section-card', {
+            scrollTrigger: {
+              trigger: '.section-card',
+              start: 'top 80%'
+            },
+            duration: 0.8,
+            opacity: 0,
+            y: 50,
+            stagger: 0.2,
+            ease: 'back.out(1.7)'
+          });
+        }
+      }
 
       // Add hover animations to section cards
       const sectionCards = document.querySelectorAll('.section-card');

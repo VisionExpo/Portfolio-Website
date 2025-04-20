@@ -1,4 +1,15 @@
-// animations.js - Add animations to the existing HTML content using GSAP
+// animations.js - Add animations and navigation to all pages
+
+// Helper function to safely animate elements
+function safeAnimate(selector, animation) {
+  const elements = document.querySelectorAll(selector);
+  if (elements && elements.length > 0) {
+    return gsap.from(elements, animation);
+  } else {
+    console.log(`Elements not found for selector: ${selector}`);
+    return null;
+  }
+}
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,322 +28,88 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('ScrollToPlugin registered');
     }
 
-    // Initialize animations
-    initAnimations();
+    // Add a navbar that changes on scroll
+    addNavbar();
+
+    // Change navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (navbar) {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+    });
+
+    // Add smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          // Use GSAP for smooth scrolling if ScrollToPlugin is available
+          if (typeof ScrollToPlugin !== 'undefined') {
+            gsap.to(window, {
+              duration: 1,
+              scrollTo: {
+                y: targetElement,
+                offsetY: 70 // Account for fixed header
+              },
+              ease: 'power2.inOut'
+            });
+          } else {
+            // Fallback to standard scrolling
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
   } else {
     console.error('GSAP not loaded');
   }
 });
 
-// Function to initialize all animations
-function initAnimations() {
-  console.log('Initializing animations');
-
-  // Animate the header/about section
-  gsap.from('#about .profile-picture', {
-    duration: 1.2,
-    opacity: 0,
-    y: 50,
-    rotation: 10,
-    ease: 'power3.out'
-  });
-
-  gsap.from('#about h1, #about p', {
-    duration: 1,
-    opacity: 0,
-    y: 30,
-    stagger: 0.2,
-    ease: 'power2.out',
-    delay: 0.3
-  });
-
-  // Animate the resume button with a special effect
-  gsap.from('.resume-btn', {
-    duration: 1,
-    opacity: 0,
-    scale: 0.5,
-    ease: 'back.out(1.7)',
-    delay: 1.2
-  });
-
-  // Add a pulsing animation to draw attention to the resume button
-  gsap.to('.resume-btn', {
-    duration: 1.5,
-    boxShadow: '0 0 15px rgba(255, 0, 127, 0.7)',
-    repeat: 2,
-    yoyo: true,
-    ease: 'power1.inOut',
-    delay: 2
-  });
-
-  // Animate project cards on scroll - first row
-  gsap.from('#projects .row:first-child .card', {
-    scrollTrigger: {
-      trigger: '#projects',
-      start: 'top 80%',
-    },
-    duration: 0.8,
-    opacity: 0,
-    y: 50,
-    stagger: 0.2,
-    ease: 'back.out(1.7)'
-  });
-
-  // Animate project cards on scroll - second row
-  gsap.from('#projects .row:nth-child(2) .card', {
-    scrollTrigger: {
-      trigger: '#projects .row:nth-child(2)',
-      start: 'top 80%',
-    },
-    duration: 0.8,
-    opacity: 0,
-    y: 50,
-    stagger: 0.2,
-    ease: 'back.out(1.7)',
-    delay: 0.3
-  });
-
-  // Animate skill cards on scroll
-  gsap.from('#skills .col-md-3', {
-    scrollTrigger: {
-      trigger: '#skills',
-      start: 'top 80%',
-    },
-    duration: 0.6,
-    opacity: 0,
-    scale: 0.8,
-    stagger: 0.1,
-    ease: 'power1.out'
-  });
-
-  // Animate blog cards on scroll
-  gsap.from('#blogs .blog-card', {
-    scrollTrigger: {
-      trigger: '#blogs',
-      start: 'top 80%',
-    },
-    duration: 0.8,
-    opacity: 0,
-    y: 50,
-    stagger: 0.15,
-    ease: 'back.out(1.7)'
-  });
-
-  // Animate the view all button
-  gsap.from('.view-all-btn', {
-    scrollTrigger: {
-      trigger: '#blogs',
-      start: 'top 60%',
-    },
-    duration: 0.6,
-    opacity: 0,
-    y: 20,
-    scale: 0.9,
-    ease: 'power2.out',
-    delay: 0.8
-  });
-
-  // Add hover animations to blog cards
-  const blogCards = document.querySelectorAll('.blog-card');
-  blogCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      gsap.to(card, {
-        duration: 0.3,
-        y: -10,
-        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)',
-        ease: 'power2.out'
-      });
-
-      // Animate the image
-      const img = card.querySelector('img');
-      if (img) {
-        gsap.to(img, {
-          duration: 0.5,
-          scale: 1.05,
-          ease: 'power1.out'
-        });
-      }
-    });
-
-    card.addEventListener('mouseleave', () => {
-      gsap.to(card, {
-        duration: 0.3,
-        y: 0,
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-        ease: 'power2.out'
-      });
-
-      // Reset the image
-      const img = card.querySelector('img');
-      if (img) {
-        gsap.to(img, {
-          duration: 0.5,
-          scale: 1,
-          ease: 'power1.out'
-        });
-      }
-    });
-  });
-
-  // Animate contact section
-  gsap.from('.contact-info', {
-    scrollTrigger: {
-      trigger: '.contact-section',
-      start: 'top 80%',
-    },
-    duration: 0.8,
-    opacity: 0,
-    y: 30,
-    stagger: 0.2,
-    ease: 'power2.out'
-  });
-
-  gsap.from('.contact-section .col-md-1', {
-    scrollTrigger: {
-      trigger: '.contact-section',
-      start: 'top 70%',
-    },
-    duration: 0.5,
-    opacity: 0,
-    scale: 0,
-    stagger: 0.1,
-    ease: 'back.out(1.7)',
-    delay: 0.4
-  });
-
-  // Add hover animations to project cards
-  const projectCards = document.querySelectorAll('#projects .card');
-  projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      gsap.to(card, {
-        duration: 0.3,
-        y: -10,
-        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)',
-        ease: 'power2.out'
-      });
-
-      // Animate the image
-      gsap.to(card.querySelector('img'), {
-        duration: 0.5,
-        scale: 1.05,
-        ease: 'power1.out'
-      });
-    });
-
-    card.addEventListener('mouseleave', () => {
-      gsap.to(card, {
-        duration: 0.3,
-        y: 0,
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-        ease: 'power2.out'
-      });
-
-      // Reset the image
-      gsap.to(card.querySelector('img'), {
-        duration: 0.5,
-        scale: 1,
-        ease: 'power1.out'
-      });
-    });
-  });
-
-  // Add hover animations to skill cards
-  const skillCards = document.querySelectorAll('#skills .col-md-3');
-  skillCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      gsap.to(card.querySelector('img'), {
-        duration: 0.4,
-        rotation: 10,
-        scale: 1.1,
-        ease: 'power1.out'
-      });
-
-      gsap.to(card.querySelector('h5'), {
-        duration: 0.3,
-        color: '#ff007f',
-        ease: 'power1.out'
-      });
-    });
-
-    card.addEventListener('mouseleave', () => {
-      gsap.to(card.querySelector('img'), {
-        duration: 0.4,
-        rotation: 0,
-        scale: 1,
-        ease: 'power1.out'
-      });
-
-      gsap.to(card.querySelector('h5'), {
-        duration: 0.3,
-        color: '#212529',
-        ease: 'power1.out'
-      });
-    });
-  });
-
-  // Add hover animations to social icons
-  const socialIcons = document.querySelectorAll('.contact-section .col-md-1');
-  socialIcons.forEach(icon => {
-    icon.addEventListener('mouseenter', () => {
-      gsap.to(icon, {
-        duration: 0.3,
-        y: -5,
-        ease: 'power2.out'
-      });
-
-      gsap.to(icon.querySelector('img'), {
-        duration: 0.3,
-        scale: 1.1,
-        rotation: 5,
-        ease: 'back.out(1.7)'
-      });
-    });
-
-    icon.addEventListener('mouseleave', () => {
-      gsap.to(icon, {
-        duration: 0.3,
-        y: 0,
-        ease: 'power2.out'
-      });
-
-      gsap.to(icon.querySelector('img'), {
-        duration: 0.3,
-        scale: 1,
-        rotation: 0,
-        ease: 'power2.out'
-      });
-    });
-  });
-
-  // Add a navbar that changes on scroll
-  let navbar;
-
+// Function to add the navbar to all pages
+function addNavbar() {
   // Check if navbar already exists
   if (!document.querySelector('.navbar')) {
-    navbar = document.createElement('nav');
+    const navbar = document.createElement('nav');
     navbar.className = 'navbar navbar-expand-lg navbar-dark bg-dark fixed-top';
+
+    // Get current page filename
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
     navbar.innerHTML = `
       <div class="container">
-        <a class="navbar-brand" href="#">Vishal Gorule</a>
+        <a class="navbar-brand" href="index.html">Vishal Gorule</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
+            <li class="nav-item ${currentPage === 'index.html' || currentPage === '' ? 'active' : ''}">
+              <a class="nav-link" href="index.html">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#projects">Projects</a>
+            <li class="nav-item ${currentPage === 'projects.html' ? 'active' : ''}">
+              <a class="nav-link" href="projects.html">Projects</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#skills">Skills</a>
+            <li class="nav-item ${currentPage === 'skills.html' ? 'active' : ''}">
+              <a class="nav-link" href="skills.html">Skills</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ${currentPage === 'blogs.html' ? 'active' : ''}">
               <a class="nav-link" href="blogs.html">Blogs</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
+            <li class="nav-item ${currentPage === 'contact.html' ? 'active' : ''}">
+              <a class="nav-link" href="contact.html">Contact</a>
             </li>
             <li class="nav-item">
               <a class="nav-link resume-nav-link" href="Assets/Resume/VishalGoruleResume-FEB.pdf" download>
@@ -346,101 +123,5 @@ function initAnimations() {
 
     // Insert the navbar at the beginning of the body
     document.body.insertBefore(navbar, document.body.firstChild);
-  } else {
-    navbar = document.querySelector('.navbar');
   }
-
-  // Change navbar background on scroll
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-
-  // Add click animation for the resume button
-  const resumeBtn = document.querySelector('.resume-btn');
-  if (resumeBtn) {
-    resumeBtn.addEventListener('click', function() {
-      // Create a quick animation when the button is clicked
-      gsap.to(this, {
-        duration: 0.1,
-        scale: 0.95,
-        onComplete: function() {
-          gsap.to(resumeBtn, {
-            duration: 0.1,
-            scale: 1
-          });
-        }
-      });
-
-      // Show a success message
-      const successMsg = document.createElement('div');
-      successMsg.className = 'resume-download-msg';
-      successMsg.innerHTML = 'Resume download started!';
-      successMsg.style.position = 'fixed';
-      successMsg.style.top = '20px';
-      successMsg.style.left = '50%';
-      successMsg.style.transform = 'translateX(-50%)';
-      successMsg.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-      successMsg.style.color = '#fff';
-      successMsg.style.padding = '10px 20px';
-      successMsg.style.borderRadius = '5px';
-      successMsg.style.zIndex = '9999';
-      successMsg.style.opacity = '0';
-      document.body.appendChild(successMsg);
-
-      // Animate the message
-      gsap.to(successMsg, {
-        duration: 0.5,
-        opacity: 1,
-        y: 10,
-        ease: 'power2.out',
-        onComplete: function() {
-          gsap.to(successMsg, {
-            duration: 0.5,
-            opacity: 0,
-            y: -10,
-            delay: 2,
-            ease: 'power2.in',
-            onComplete: function() {
-              document.body.removeChild(successMsg);
-            }
-          });
-        }
-      });
-    });
-  }
-
-  // Add smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        // Use GSAP for smooth scrolling if ScrollTrigger is available
-        if (typeof ScrollTrigger !== 'undefined') {
-          gsap.to(window, {
-            duration: 1,
-            scrollTo: {
-              y: targetElement,
-              offsetY: 70 // Account for fixed header
-            },
-            ease: 'power2.inOut'
-          });
-        } else {
-          // Fallback to standard scrolling
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      }
-    });
-  });
 }
