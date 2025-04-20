@@ -13,6 +13,10 @@ function safeAnimate(selector, animation) {
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+  // Load chatbot if it exists
+  if (typeof initializeChatbot === 'function') {
+    console.log('Chatbot initialized');
+  }
   // Initialize GSAP
   if (typeof gsap !== 'undefined') {
     console.log('GSAP loaded successfully');
