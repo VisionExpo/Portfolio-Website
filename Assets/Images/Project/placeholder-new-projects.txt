@@ -1,6 +1,0 @@
-This is a placeholder file. You should add the following images to the Project directory:
-
-1. solar-panel.jpg - An image related to solar panels or solar panel fault detection
-2. chicken-disease.jpg - An image related to chickens or poultry disease detection
-
-You can find free stock images on websites like Unsplash, Pexels, or Pixabay.

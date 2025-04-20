@@ -106,11 +106,18 @@ body {
     overflow: hidden;
     background-color: #1c1c30;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto; /* Center cards horizontally */
 }
 
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Project Section Styles */
+#projects .row {
+    display: flex;
+    justify-content: center;
 }
 
 .card-title {
