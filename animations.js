@@ -106,7 +106,7 @@ function initAnimations() {
   });
 
   // Animate blog cards on scroll
-  gsap.from('.blog-card', {
+  gsap.from('#blogs .blog-card', {
     scrollTrigger: {
       trigger: '#blogs',
       start: 'top 80%',
@@ -114,7 +114,7 @@ function initAnimations() {
     duration: 0.8,
     opacity: 0,
     y: 50,
-    stagger: 0.2,
+    stagger: 0.15,
     ease: 'back.out(1.7)'
   });
 
