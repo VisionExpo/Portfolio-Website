@@ -24,6 +24,13 @@ Portfolio-Website/
 │       ├── animations.js # Animation and navigation
 │       └── chatbot.js    # Chatbot functionality
 │
+├── form-setup/          # Contact form documentation
+│   ├── README.md        # Overview of form setup
+│   ├── CONTACT_FORM_README.md # Detailed form documentation
+│   ├── FORMSPREE_SETUP_GUIDE.md # Formspree setup instructions
+│   ├── FORMSPREE_TROUBLESHOOTING.md # Troubleshooting guide
+│   └── test-form.html   # Simple test form for troubleshooting
+│
 └── Assets/              # Images and other assets
     ├── Icons/           # Icon images
     ├── Images/          # Content images
@@ -63,7 +70,10 @@ The contact form uses Formspree to handle form submissions:
 2. After submission, users are redirected to a thank-you page
 3. No server-side code or email configuration is needed
 
-For more details, see the `CONTACT_FORM_README.md` file.
+For more details, see the documentation in the `form-setup` folder, which includes:
+- Setup instructions
+- Troubleshooting guide
+- Test form for verification
 
 ## Technologies Used
 
