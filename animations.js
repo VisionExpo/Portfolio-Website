@@ -46,6 +46,25 @@ function initAnimations() {
     delay: 0.3
   });
 
+  // Animate the resume button with a special effect
+  gsap.from('.resume-btn', {
+    duration: 1,
+    opacity: 0,
+    scale: 0.5,
+    ease: 'back.out(1.7)',
+    delay: 1.2
+  });
+
+  // Add a pulsing animation to draw attention to the resume button
+  gsap.to('.resume-btn', {
+    duration: 1.5,
+    boxShadow: '0 0 15px rgba(255, 0, 127, 0.7)',
+    repeat: 2,
+    yoyo: true,
+    ease: 'power1.inOut',
+    delay: 2
+  });
+
   // Animate project cards on scroll
   gsap.from('.card', {
     scrollTrigger: {
@@ -229,6 +248,11 @@ function initAnimations() {
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link resume-nav-link" href="Assets/Resume/VishalGoruleResume-FEB.pdf" download>
+                <i class="fas fa-download"></i> Resume
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -248,6 +272,60 @@ function initAnimations() {
       navbar.classList.remove('scrolled');
     }
   });
+
+  // Add click animation for the resume button
+  const resumeBtn = document.querySelector('.resume-btn');
+  if (resumeBtn) {
+    resumeBtn.addEventListener('click', function() {
+      // Create a quick animation when the button is clicked
+      gsap.to(this, {
+        duration: 0.1,
+        scale: 0.95,
+        onComplete: function() {
+          gsap.to(resumeBtn, {
+            duration: 0.1,
+            scale: 1
+          });
+        }
+      });
+
+      // Show a success message
+      const successMsg = document.createElement('div');
+      successMsg.className = 'resume-download-msg';
+      successMsg.innerHTML = 'Resume download started!';
+      successMsg.style.position = 'fixed';
+      successMsg.style.top = '20px';
+      successMsg.style.left = '50%';
+      successMsg.style.transform = 'translateX(-50%)';
+      successMsg.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+      successMsg.style.color = '#fff';
+      successMsg.style.padding = '10px 20px';
+      successMsg.style.borderRadius = '5px';
+      successMsg.style.zIndex = '9999';
+      successMsg.style.opacity = '0';
+      document.body.appendChild(successMsg);
+
+      // Animate the message
+      gsap.to(successMsg, {
+        duration: 0.5,
+        opacity: 1,
+        y: 10,
+        ease: 'power2.out',
+        onComplete: function() {
+          gsap.to(successMsg, {
+            duration: 0.5,
+            opacity: 0,
+            y: -10,
+            delay: 2,
+            ease: 'power2.in',
+            onComplete: function() {
+              document.body.removeChild(successMsg);
+            }
+          });
+        }
+      });
+    });
+  }
 
   // Add smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

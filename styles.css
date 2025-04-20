@@ -41,10 +41,58 @@ body {
 .btn-primary {
     background-color: var(--primary-color);
     border: none;
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
     background-color: #e60073;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 0, 115, 0.4);
+}
+
+/* Resume Button Styles */
+.resume-btn {
+    padding: 12px 24px !important;
+    font-weight: bold !important;
+    border-radius: 30px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
+    background-color: #ff007f !important;
+    border: 2px solid #ff007f !important;
+    color: white !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4) !important;
+    transition: all 0.3s ease !important;
+    display: inline-block !important;
+}
+
+.resume-btn:hover {
+    background-color: #e60073 !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 25px rgba(255, 0, 127, 0.5) !important;
+}
+
+.resume-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+    transition: all 0.6s ease !important;
+    z-index: -1 !important;
+}
+
+.resume-btn:hover::before {
+    left: 100% !important;
+}
+
+.resume-btn i {
+    margin-right: 8px !important;
+    font-size: 1.2em !important;
 }
 
 /* Card Styles */
@@ -144,6 +192,35 @@ body {
     color: var(--primary-color);
 }
 
+/* Resume Contact Link */
+.resume-contact-link a {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 20px;
+    background-color: rgba(255, 0, 127, 0.2);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary-color);
+}
+
+.resume-contact-link a:hover {
+    background-color: rgba(255, 0, 127, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
+    text-decoration: none;
+}
+
+.resume-contact-link i {
+    font-size: 1.3rem;
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.resume-contact-link span {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
 .social-icon {
     width: 50px;
     height: 50px;
@@ -187,6 +264,24 @@ body {
 .navbar.scrolled {
     background-color: rgba(0, 0, 0, 0.95) !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Resume Nav Link */
+.resume-nav-link {
+    color: #ff007f !important;
+    font-weight: bold !important;
+    border: 1px solid #ff007f;
+    border-radius: 20px;
+    padding: 5px 15px !important;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.resume-nav-link:hover {
+    background-color: #ff007f !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 0, 127, 0.3);
 }
 
 /* Project Card Animations */
