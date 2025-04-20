@@ -46,13 +46,13 @@ Portfolio-Website/
 - Contact form with Formspree integration
 - Thank you page after form submission
 
-## How to Run
+## How to Run Locally
 
 1. Make sure you have Python installed
 2. Open a terminal/command prompt in the project directory
 3. Run the following command:
 
-```
+```bash
 python -m http.server 8000
 ```
 
@@ -61,6 +61,34 @@ python -m http.server 8000
 ```
 http://localhost:8000/templates/index.html
 ```
+
+## Deployment on Render
+
+This portfolio website can be easily deployed on Render's free static site hosting:
+
+1. **Create a Render account**:
+   - Sign up at [render.com](https://render.com)
+   - Connect your GitHub account
+
+2. **Create a new Static Site**:
+   - From the Render dashboard, click "New" and select "Static Site"
+   - Connect to your GitHub repository
+   - Use the following settings:
+     - **Name**: portfolio-website (or your preferred name)
+     - **Branch**: main
+     - **Build Command**: (leave empty)
+     - **Publish Directory**: ./
+
+3. **Deploy the site**:
+   - Click "Create Static Site"
+   - Render will automatically deploy your website
+   - You'll get a URL like `https://portfolio-website.onrender.com`
+
+4. **Custom Domain (Optional)**:
+   - In your site's settings, go to "Custom Domain"
+   - Follow the instructions to add your domain
+
+The site will automatically redeploy whenever you push changes to your GitHub repository.
 
 ## Contact Form
 
