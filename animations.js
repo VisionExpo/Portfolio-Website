@@ -65,8 +65,8 @@ function initAnimations() {
     delay: 2
   });
 
-  // Animate project cards on scroll
-  gsap.from('.card', {
+  // Animate project cards on scroll - first row
+  gsap.from('#projects .row:first-child .card', {
     scrollTrigger: {
       trigger: '#projects',
       start: 'top 80%',
@@ -76,6 +76,20 @@ function initAnimations() {
     y: 50,
     stagger: 0.2,
     ease: 'back.out(1.7)'
+  });
+
+  // Animate project cards on scroll - second row
+  gsap.from('#projects .row:nth-child(2) .card', {
+    scrollTrigger: {
+      trigger: '#projects .row:nth-child(2)',
+      start: 'top 80%',
+    },
+    duration: 0.8,
+    opacity: 0,
+    y: 50,
+    stagger: 0.2,
+    ease: 'back.out(1.7)',
+    delay: 0.3
   });
 
   // Animate skill cards on scroll
@@ -89,6 +103,33 @@ function initAnimations() {
     scale: 0.8,
     stagger: 0.1,
     ease: 'power1.out'
+  });
+
+  // Animate blog cards on scroll
+  gsap.from('.blog-card', {
+    scrollTrigger: {
+      trigger: '#blogs',
+      start: 'top 80%',
+    },
+    duration: 0.8,
+    opacity: 0,
+    y: 50,
+    stagger: 0.2,
+    ease: 'back.out(1.7)'
+  });
+
+  // Animate the view all button
+  gsap.from('.view-all-btn', {
+    scrollTrigger: {
+      trigger: '#blogs',
+      start: 'top 60%',
+    },
+    duration: 0.6,
+    opacity: 0,
+    y: 20,
+    scale: 0.9,
+    ease: 'power2.out',
+    delay: 0.8
   });
 
   // Animate contact section
@@ -118,7 +159,7 @@ function initAnimations() {
   });
 
   // Add hover animations to project cards
-  const projectCards = document.querySelectorAll('.card');
+  const projectCards = document.querySelectorAll('#projects .card');
   projectCards.forEach(card => {
     card.addEventListener('mouseenter', () => {
       gsap.to(card, {
@@ -244,6 +285,9 @@ function initAnimations() {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#blogs">Blogs</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>

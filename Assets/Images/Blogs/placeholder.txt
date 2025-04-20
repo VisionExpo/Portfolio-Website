@@ -1,0 +1,7 @@
+This is a placeholder file. You should replace the following images with actual blog images:
+
+1. ai-ml.jpg - An image related to AI/ML for the first blog post
+2. data-science.jpg - An image related to Data Science for the second blog post
+3. python.jpg - An image related to Python for the third blog post
+
+You can find free stock images on websites like Unsplash, Pexels, or Pixabay.
