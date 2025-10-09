@@ -207,7 +207,7 @@ textarea:focus {
 }
 
 .section-card p {
-  color: #aaa;
+  color: #fff;
   margin-bottom: 15px;
 }
 
@@ -224,7 +224,7 @@ textarea:focus {
   margin-right: 10px;
   margin-bottom: 8px;
   font-size: 0.9rem;
-  color: #ddd;
+  color: #fff;
   background-color: rgba(255, 255, 255, 0.05);
   padding: 4px 10px;
   border-radius: 20px;
@@ -397,7 +397,7 @@ textarea:focus {
 }
 
 .form-control::placeholder {
-  color: #aaa;
+  color: #fff;
 }
 
 /* Blog Card Styles */
@@ -446,7 +446,7 @@ textarea:focus {
   justify-content: space-between;
   margin-top: 10px;
   font-size: 0.8rem;
-  color: #aaa;
+  color: #fff;
 }
 
 .blog-meta span {
@@ -630,7 +630,7 @@ textarea:focus {
 
 .skill-list li {
   padding: 8px 0;
-  color: #ddd;
+  color: #fff;
   position: relative;
   padding-left: 20px;
 }
