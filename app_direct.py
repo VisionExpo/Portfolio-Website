@@ -60,10 +60,15 @@ def submit_form():
         email = request.form.get('email')
         subject = request.form.get('subject', 'Contact Form Submission')
         message = request.form.get('message')
-        
+
+        # Validate form data
+        if not name or not email or not message:
+            logger.warning("Form submission missing required fields.")
+            return jsonify({"success": False, "message": "Please fill in all required fields."}), 400
+
         # Log the form submission
         logger.info(f"Form submission received from {name} ({email})")
-        
+
         # Create email content
         email_content = f"""
         <html>
@@ -77,16 +82,20 @@ def submit_form():
         </body>
         </html>
         """
-        
+
         # Send email
-        send_email(name, email, subject, email_content)
-        
+        try:
+            send_email(name, email, subject, email_content)
+        except Exception as e:
+            logger.error(f"Failed to send email: {str(e)}")
+            return jsonify({"success": False, "message": "Failed to send email. Please try again later."}), 500
+
         # Return success response
         return jsonify({"success": True, "message": "Your message has been sent successfully!"})
-    
+
     except Exception as e:
         logger.error(f"Error processing form submission: {str(e)}")
-        return jsonify({"success": False, "message": f"An error occurred: {str(e)}"})
+        return jsonify({"success": False, "message": "An unexpected error occurred. Please try again later."}), 500
 
 def send_email(sender_name, sender_email, subject, html_content):
     """Send email using SMTP"""
