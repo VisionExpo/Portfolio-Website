@@ -23,10 +23,10 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Email configuration - CHANGE THIS PASSWORD AFTER TESTING
-EMAIL_ADDRESS = 'gorulevishal984@gmail.com'
-EMAIL_PASSWORD = '10621071'  # IMPORTANT: Change this after testing!
-SMTP_SERVER = 'smtp.gmail.com'
-SMTP_PORT = 587
+EMAIL_ADDRESS = os.environ.get('EMAIL_ADDRESS', 'gorulevishal984@gmail.com')
+EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+SMTP_SERVER = os.environ.get('SMTP_SERVER', 'smtp.gmail.com')
+SMTP_PORT = int(os.environ.get('SMTP_PORT', 587))
 
 @app.route('/')
 def index():

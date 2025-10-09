@@ -16,8 +16,10 @@ if exist venv\Scripts\activate (
 )
 
 REM Set environment variables
-set EMAIL_ADDRESS=gorulevishal984@gmail.com
-set EMAIL_PASSWORD=igkjktewexgcclqt
+REM Set environment variables before running this script or in your system environment
+REM Example:
+REM   set EMAIL_ADDRESS=your_email@gmail.com
+REM   set EMAIL_PASSWORD=your_app_password
 
 echo.
 echo Email configuration:

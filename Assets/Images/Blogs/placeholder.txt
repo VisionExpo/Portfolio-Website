@@ -1,7 +1,9 @@
-This is a placeholder file. You should replace the following images with actual blog images:
 
-1. ai-ml.jpg - An image related to AI/ML for the first blog post
-2. data-science.jpg - An image related to Data Science for the second blog post
-3. python.jpg - An image related to Python for the third blog post
+Actual blog images present in this folder:
 
-You can find free stock images on websites like Unsplash, Pexels, or Pixabay.
+- Mastering_Model_Training.gif
+- Offline Learning vs Online Learning.jpg
+- turbocharge_your_neural_network.jpg
+- Unlocking_secret.jpg
+
+If you add new blog posts, place their images here and update this file if needed.
