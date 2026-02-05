@@ -1,302 +1,59 @@
-/* Root Variables */
+/* =====================
+   DESIGN TOKENS
+   ===================== */
+
 :root {
-  /* Cyberpunk / Systems Engineer Palette */
   --bg-primary: #0b0f14;
   --bg-secondary: #111827;
   --neon-green: #22c55e;
   --neon-glow: rgba(34, 197, 94, 0.45);
   --text-primary: #e5e7eb;
   --text-muted: #9ca3af;
-  
-  /* Fonts */
-  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
 
-  /* Legacy mappings for compatibility */
-  --primary-color: var(--neon-green);
-  --text-color-light: var(--text-primary);
-  --bg-dark: var(--bg-primary);
-  --card-shadow: rgba(0, 0, 0, 0.5);
-  --transition-speed: 0.3s;
-  --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --font-primary: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400&display=swap');
+/* =====================
+   GLOBAL STYLES
+   ===================== */
 
-/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap');
+
 body {
+  margin: 0;
   font-family: var(--font-primary);
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  /* Subtle grid texture */
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 40px 40px;
-  overflow-x: hidden; /* Prevent horizontal scroll during animations */
+  overflow-x: hidden;
   scroll-behavior: smooth;
-  padding-top: 56px; /* Height of navbar */
 }
 
-/* Monospace Accents */
-.mono-text, code, pre, .tech-pill {
-  font-family: var(--font-mono);
-}
+/* =====================
+   ACCESSIBILITY
+   ===================== */
 
 a:focus,
-button:focus,
-input:focus,
-textarea:focus {
+button:focus {
   outline: 1px solid var(--neon-green);
-  box-shadow: 0 0 10px var(--neon-glow);
   outline-offset: 2px;
+  box-shadow: 0 0 10px var(--neon-glow);
 }
 
-/* Section Backgrounds */
-.section-bg {
-  background-color: transparent;
-  padding: 50px 0;
-}
+/* =====================
+   UTILITY
+   ===================== */
 
-/* Hero Section */
-.hero-section {
-  background: linear-gradient(rgba(11, 15, 20, 0.9), rgba(11, 15, 20, 0.95));
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  position: relative;
-}
-
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.15) 0%, transparent 60%);
-  opacity: 0.6;
-}
-
-.hero-section .container {
-  position: relative;
-  z-index: 1;
-}
-
-/* Button Styles */
-.btn-primary {
-  background-color: transparent;
-  border: 1px solid var(--neon-green);
-  color: var(--neon-green);
+.mono-text {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
-  background-color: var(--neon-green);
-  color: var(--bg-primary);
-  transform: translateY(-3px);
-  box-shadow: 0 0 15px var(--neon-glow);
-}
+/* =====================
+   SECTION STYLES
+   ===================== */
 
-/* Resume Button Styles */
-.resume-btn {
-  padding: 12px 24px !important;
-  font-weight: bold !important;
-  border-radius: 4px !important;
-  position: relative !important;
-  overflow: hidden !important;
-  z-index: 1 !important;
-  background-color: transparent !important;
-  border: 1px solid var(--neon-green) !important;
-  color: var(--neon-green) !important;
-  font-family: var(--font-mono) !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
-  box-shadow: none !important;
-  transition: all 0.3s ease !important;
-  display: inline-block !important;
-}
-
-.resume-btn:hover {
-  background-color: var(--neon-green) !important;
-  color: var(--bg-primary) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 0 20px var(--neon-glow) !important;
-}
-
-/* Card Styles */
-.card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: none;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
-  overflow: hidden;
-  background-color: var(--bg-secondary);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 0 auto;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: var(--neon-green);
-  box-shadow: 0 0 20px var(--neon-glow);
-}
-
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
-
-/* Contact Info Styles */
-.contact-info {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  padding: 15px;
-  background-color: var(--bg-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.contact-info:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: translateY(-5px);
-}
-
-.contact-info i {
-  font-size: 1.5rem;
-  margin-right: 10px;
-  color: var(--primary-color);
-}
-
-.contact-info span {
-  color: white;
-  font-weight: 400;
-}
-
-/* Social Icons */
-.social-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  transition: all 0.3s ease;
-}
-
-/* Contact Section */
-.contact-section {
-  background-color: var(--bg-dark);
-  padding: 3rem 0;
-  color: #fff;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
-  opacity: 0.5;
-  z-index: 0;
-  animation: pulse 8s infinite alternate;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.3; }
-  100% { transform: scale(1.5); opacity: 0.7; }
-}
-
-/* Navbar Animation */
-.navbar {
-  transition: background-color 0.3s ease;
-  padding: 10px 0;
-}
-
-.navbar.scrolled {
-  background-color: rgba(0, 0, 0, 0.95) !important;
-  border-bottom: 1px solid rgba(34, 197, 94, 0.2);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
-
-/* Resume Nav Link */
-.resume-nav-link {
-  color: var(--neon-green) !important;
-  font-weight: bold !important;
-  border: 1px solid var(--neon-green);
-  border-radius: 4px;
-  padding: 5px 15px !important;
-  margin-left: 15px;
-  transition: all 0.3s ease;
-}
-
-.resume-nav-link:hover {
-  background-color: var(--neon-green) !important;
-  color: var(--bg-primary) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 0 15px var(--neon-glow);
-}
-
-/* Project Card Animations */
-.project-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--neon-green);
-  box-shadow: 0 0 20px var(--neon-glow);
-}
-
-.project-card img {
-  transition: transform 0.5s ease;
-}
-
-.project-card:hover img {
-  transform: scale(1.05);
-}
-
-/* Skill Card Animations */
-.skill-card img {
-  transition: transform 0.4s ease;
-}
-
-.skill-card:hover img {
-  transform: scale(1.1) rotate(10deg);
-}
-
-.skill-card h5 {
-  transition: color 0.3s ease;
-}
-
-.skill-card:hover h5 {
-  color: var(--primary-color);
-}
-
-/* Social Icon Animations */
-.social-icon-container {
-  transition: transform 0.3s ease;
-}
-
-.social-icon-container:hover {
-  transform: translateY(-5px);
-}
-
-/* Footer Styles */
-footer {
-  background-color: #05070a;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 30px 0;
-}
+@import "./hero.css";

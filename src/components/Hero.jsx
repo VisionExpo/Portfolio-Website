@@ -1,38 +1,57 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { motion } from "framer-motion";
 
-const Hero = () => {
-  const heroRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.hero-title', { y: 30, opacity: 0, duration: 1, delay: 0.2 });
-      gsap.from('.hero-subtitle', { y: 30, opacity: 0, duration: 1, delay: 0.4 });
-      gsap.from('.hero-cta', { y: 30, opacity: 0, duration: 1, delay: 0.6 });
-    }, heroRef);
-    return () => ctx.revert();
-  }, []);
-
+export default function Hero() {
   return (
-    <div className="hero-section d-flex align-items-center" ref={heroRef}>
-      <div className="container text-center">
-        <h1 className="display-3 font-weight-bold mb-3 hero-title">
-          Vishal Gorule
-          <span style={{ color: 'var(--neon-green)', fontSize: '0.5em', verticalAlign: 'super', marginLeft: '10px' }}>●</span>
-        </h1>
-        <h2 className="h3 mb-4 hero-subtitle" style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
-          AI Systems Engineer
-        </h2>
-        <p className="lead mb-5 hero-subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>
-          Building intelligent systems that <span className="text-white">reason</span>, <span className="text-white">see</span>, <span className="text-white">speak</span>, and <span className="text-white">make decisions</span>.
-        </p>
-        <div className="hero-cta">
-          <a href="#projects" className="btn btn-primary mr-3 px-4 py-2">View Projects</a>
-          <a href="Assets/Resume/Vishal_Gorule_Resume.pdf" target="_blank" className="resume-btn">Download Resume</a>
-        </div>
-      </div>
-    </div>
-  );
-};
+    <section className="hero">
+      <motion.h1
+        className="hero-title"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        Vishal Gorule
+        <span className="hero-dot">●</span>
+      </motion.h1>
 
-export default Hero;
+      <motion.h2
+        className="hero-subtitle"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        AI Systems Engineer
+      </motion.h2>
+
+      <motion.p
+        className="hero-description"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        Building intelligent systems that{" "}
+        <span>reason</span>, <span>see</span>, <span>speak</span>, and{" "}
+        <span>make decisions</span>.
+      </motion.p>
+
+      <motion.div
+        className="hero-actions"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      >
+        <a href="#projects" className="btn-primary">
+          View Projects
+        </a>
+
+        <a
+          href="/assets/resume/Vishal_Vilas_Gorule_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-secondary"
+        >
+          Download Resume
+        </a>
+      </motion.div>
+    </section>
+  );
+}
