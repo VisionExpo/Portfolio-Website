@@ -1,131 +1,158 @@
-# Vishal Gorule Portfolio Website
+# Vishal Gorule — AI Systems Engineer Portfolio
 
-A professional portfolio website showcasing skills, projects, and blogs in AI/ML and software development. Built to provide a clean, interactive experience for visitors, featuring responsive design and user-friendly navigation.
+A modern, cyberpunk-themed personal portfolio built as a **production-grade React application**, showcasing my work in AI systems, machine learning, and applied engineering.
 
-## Overview
+This portfolio itself is designed as a real system — clean architecture, reusable components, and automated deployment.
 
-**Live Website:** [https://portfolio-website-ugwq.onrender.com](https://portfolio-website-ugwq.onrender.com)
+---
 
-![Portfolio Screenshot](Assets/Images/portfolio-screenshot.jpg)
+## 🌐 Live Website
 
-## Project Structure
+👉 **[https://portfolio-website-ugwq.onrender.com/](https://portfolio-website-ugwq.onrender.com/)**
+*(Automatically deployed on every push to `main`)*
+
+---
+
+## 🧠 What This Is
+
+This is **not** a static HTML site or a template.
+
+It is:
+
+* A **React + Vite** single-page application
+* Fully component-driven
+* Styled with a custom **cyberpunk / futuristic design system**
+* Deployed via **CI/CD (GitHub Actions + Render)**
+
+The goal was to build something that reflects how I approach real systems:
+
+> intentional structure, minimal noise, and production thinking.
+
+---
+
+## 🧩 Features
+
+* ⚛️ **React + Vite** (fast, modern frontend stack)
+* 🎨 **Custom cyberpunk UI** (dark theme, neon green accents)
+* 🧱 **Reusable components** (Hero, Projects, Skills, Navbar, Contact)
+* 📦 **Data-driven sections**
+* 🚀 **CI/CD enabled**
+
+  * Push to `main` → build → deploy automatically
+* 📱 Fully responsive
+* ♿ Accessible focus states and keyboard navigation
+
+---
+
+## 🏗️ Tech Stack
+
+**Frontend**
+
+* React
+* Vite
+* CSS (modular, component-scoped)
+* Framer Motion
+
+**DevOps**
+
+* GitHub Actions (CI)
+* Render (CD & hosting)
+
+---
+
+## 📂 Project Structure
 
 ```text
-Portfolio-Website/
+portfolio/
+├── public/
+│   └── assets/
+│       ├── icons/
+│       ├── images/
+│       └── resume/
 │
-├── templates/           # Contains all HTML files
-│   ├── index.html       # Home/About page
-│   ├── projects.html    # Projects showcase
-│   ├── skills.html      # Skills and expertise
-│   ├── blogs.html       # Blog articles
-│   ├── contact.html     # Contact information and form
-│   └── thank-you.html   # Thank you page after form submission
-│
-├── static/              # Contains static assets
-│   ├── css/             # CSS files
-│   │   ├── styles.css   # Main styles
-│   │   └── chatbot.css  # Chatbot styles
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── Hero.jsx
+│   │   ├── ProjectCard.jsx
+│   │   └── SkillCard.jsx
 │   │
-│   └── js/              # JavaScript files
-│       ├── animations.js # Animation and navigation
-│       └── chatbot.js    # Chatbot functionality
+│   ├── sections/
+│   │   ├── About.jsx
+│   │   ├── Projects.jsx
+│   │   ├── Skills.jsx
+│   │   └── Contact.jsx
+│   │
+│   ├── styles/
+│   │   ├── base.css
+│   │   ├── hero.css
+│   │   ├── project-card.css
+│   │   ├── projects.css
+│   │   ├── skills.css
+│   │   ├── navbar.css
+│   │   └── contact.css
+│   │
+│   ├── App.jsx
+│   └── main.jsx
 │
-├── form-setup/          # Contact form documentation
-│   ├── README.md        # Overview of form setup
-│   ├── CONTACT_FORM_README.md # Detailed form documentation
-│   ├── FORMSPREE_SETUP_GUIDE.md # Formspree setup instructions
-│   ├── FORMSPREE_TROUBLESHOOTING.md # Troubleshooting guide
-│   └── test-form.html   # Simple test form for troubleshooting
-│
-└── Assets/              # Images and other assets
-    ├── Icons/           # Icon images
-    ├── Images/          # Content images
-    └── Resume/          # Resume PDF
+├── index.html
+├── render.yaml
+└── .github/workflows/deploy.yml
 ```
 
-## Features
+---
 
-- Responsive design that works on all devices
-- Interactive chatbot for easy navigation
-- Animated elements using GSAP
-- Separate pages for different sections
-- Contact form with Formspree integration
-- Thank you page after form submission
+## 🔄 CI/CD Workflow
 
-## How to Run Locally
+The site uses **continuous integration and deployment**:
 
-1. Make sure you have Python installed
-2. Open a terminal/command prompt in the project directory
-3. Run the following command:
+1. Code pushed to `main`
+2. GitHub Actions runs build (`npm run build`)
+3. Render automatically deploys the latest build
+
+This ensures:
+
+* Zero manual publishing
+* Always-live latest version
+* Clean rollback path
+
+---
+
+## 🛠️ Local Development
 
 ```bash
-python -m http.server 8000
+npm install
+npm run dev
 ```
 
-4. Open your browser and navigate to:
+Runs locally at:
 
-```text
-http://localhost:8000/templates/index.html
+```
+http://localhost:5173
 ```
 
-## Deployment Status
+---
 
-### Live Website
+## 🎯 Design Philosophy
 
-The portfolio website is currently deployed on Render and can be accessed at:
-[https://portfolio-website-ugwq.onrender.com](https://portfolio-website-ugwq.onrender.com)
+* Minimal but expressive
+* Motion only when it adds meaning
+* No visual noise, no fake metrics
+* UI should feel like a **systems dashboard**, not a landing page
 
-### Deployment Details
+---
 
-- **Hosting Platform**: Render (Static Site)
-- **Deployment**: Automatic from GitHub repository
-- **Branch**: main
+## 📬 Connect With Me
 
-The site automatically redeploys whenever changes are pushed to the GitHub repository, ensuring that the live website always reflects the latest updates.
+* 🌐 Portfolio: [https://portfolio-website-ugwq.onrender.com/](https://portfolio-website-ugwq.onrender.com/)
+* 🧑‍💻 GitHub: [https://github.com/VisionExpo](https://github.com/VisionExpo)
+* 💼 LinkedIn: [https://www.linkedin.com/in/vishal-gorule/](https://www.linkedin.com/in/vishal-gorule/)
+* ✍️ Medium: [https://medium.com/@gorulevishal984](https://medium.com/@gorulevishal984)
+* 📸 Instagram: `@vishu_gorule_0909`
 
-### Future Updates
+---
 
-To update the website:
+## 📄 License
 
-1. Make changes to the local repository
-2. Commit and push to GitHub
-3. Render will automatically deploy the changes (usually within 1-2 minutes)
+This project is licensed under the **MIT License**.
 
-### Custom Domain (Future Enhancement)
-
-Currently using Render's subdomain, but can be configured with a custom domain by:
-
-- Adding a custom domain in Render settings
-- Configuring DNS records with the domain registrar
-- Setting up SSL certificate (automatically handled by Render)
-
-## Contact Form
-
-The contact form uses Formspree to handle form submissions:
-
-1. Form submissions are sent to your email via Formspree
-2. After submission, users are redirected to a thank-you page
-3. No server-side code or email configuration is needed
-
-For more details, see the documentation in the `form-setup` folder, which includes:
-
-- Setup instructions
-- Troubleshooting guide
-- Test form for verification
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- JavaScript
-- Bootstrap 4
-- GSAP (GreenSock Animation Platform)
-- Formspree (for contact form functionality)
-
-## Contact
-
-- Email: [gorulevishal984@gmail.com](mailto:gorulevishal984@gmail.com)
-- LinkedIn: [linkedin.com/in/vishal-gorule](https://www.linkedin.com/in/vishal-gorule/)
-- GitHub: [github.com/VisionExpo](https://github.com/VisionExpo)
-- Instagram: [instagram.com/vishu_gorule_0909](https://www.instagram.com/vishu_gorule_0909/)
-- Location: Pune, Maharashtra, India
