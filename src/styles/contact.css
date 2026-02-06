@@ -1,0 +1,71 @@
+/* =========================
+   CONTACT SECTION
+   ========================= */
+
+.contact-section {
+  padding: 6rem 2rem 7rem;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 15, 20, 0.95),
+    rgba(5, 7, 10, 1)
+  );
+}
+
+.contact-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.contact-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   LINKS
+   ========================= */
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  align-items: center;
+}
+
+.contact-links a {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.contact-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 1px;
+  background: var(--neon-green);
+  transition: width 0.3s ease;
+}
+
+.contact-links a:hover {
+  color: var(--neon-green);
+}
+
+.contact-links a:hover::after {
+  width: 100%;
+}
