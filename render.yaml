@@ -2,9 +2,5 @@ services:
   - type: web
     name: portfolio-website
     env: static
-    buildCommand: echo "Static site, no build needed"
-    staticPublishPath: ./
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /templates/index.html
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
