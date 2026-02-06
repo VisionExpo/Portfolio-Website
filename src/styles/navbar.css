@@ -1,0 +1,109 @@
+/* =========================
+   NAVBAR – CYBERPUNK
+   ========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  background: transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-scrolled {
+  background: rgba(11, 15, 20, 0.95);
+  border-bottom: 1px solid rgba(34, 197, 94, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+/* =========================
+   INNER
+   ========================= */
+
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================
+   LOGO
+   ========================= */
+
+.navbar-logo {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.navbar-logo span {
+  color: var(--neon-green);
+  margin-left: 0.2rem;
+  text-shadow: 0 0 10px var(--neon-glow);
+}
+
+/* =========================
+   LINKS
+   ========================= */
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.navbar-links a {
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  text-decoration: none;
+  color: var(--text-muted);
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--text-primary);
+}
+
+/* Underline hover */
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 1px;
+  background: var(--neon-green);
+  transition: width 0.25s ease;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   RESUME BUTTON
+   ========================= */
+
+.navbar-resume {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--neon-green);
+  border-radius: 6px;
+  color: var(--neon-green) !important;
+  transition: all 0.3s ease;
+}
+
+.navbar-resume:hover {
+  background: var(--neon-green);
+  color: var(--bg-primary) !important;
+  box-shadow: 0 0 12px var(--neon-glow);
+}

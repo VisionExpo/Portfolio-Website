@@ -1,37 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
+import "../styles/navbar.css";
 
-const Navbar = () => {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <nav className={`navbar navbar-expand-lg fixed-top ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container">
-        <a className="navbar-brand font-weight-bold" href="#" style={{ fontFamily: 'var(--font-mono)' }}>
-          &lt;Vishal /&gt;
+    <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
+      <div className="navbar-inner">
+        <a href="#home" className="navbar-logo">
+          VG<span>●</span>
         </a>
-        <div className="collapse navbar-collapse">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item"><a className="nav-link" href="#home">Home</a></li>
-            <li className="nav-item"><a className="nav-link" href="#about">About</a></li>
-            <li className="nav-item"><a className="nav-link" href="#projects">Projects</a></li>
-            <li className="nav-item"><a className="nav-link" href="#skills">Skills</a></li>
-            <li className="nav-item"><a className="nav-link" href="#contact">Contact</a></li>
-            <li className="nav-item">
-              <a className="nav-link resume-nav-link" href="Assets/Resume/Vishal_Gorule_Resume.pdf" target="_blank">Resume</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  );
-};
 
-export default Navbar;
+        <nav className="navbar-links">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+
+          <a
+            href="/assets/Resume/Vishal_Vilas_Gorule_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="navbar-resume"
+          >
+            Resume
+          </a>
+        </nav>
+      </div>
+    </header>
+  );
+}
