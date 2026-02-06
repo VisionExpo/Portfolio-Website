@@ -1,44 +1,41 @@
-import React from 'react';
-import ProjectCard from '../components/ProjectCard';
+import ProjectCard from "../components/ProjectCard";
+import "../styles/projects.css";
 
-const Projects = () => {
-  const projects = [
-    {
-      id: 1,
-      title: 'Potato Crop Disease Detection',
-      description: 'This project uses deep learning techniques to identify and classify diseases in potato crops from images, helping farmers protect their crops and improve yield.',
-      image: 'Assets/Images/Project/potato.jpeg',
-      link: 'https://github.com/VisionExpo/Potato-Disease-Detection',
-      techStack: ['Deep Learning', 'CNN', 'Python', 'TensorFlow']
-    },
-    {
-      id: 2,
-      title: 'Q&A System Using Gemini-Pro API',
-      description: 'A Q&A system that utilizes the Gemini-Pro API to provide accurate responses to user inquiries, enhancing user experience in various applications.',
-      image: 'Assets/Images/Project/Q&A.jpeg',
-      link: 'https://github.com/VisionExpo/QA-System-using-Gemini-Pro-API',
-      techStack: ['LLM', 'Gemini API', 'Python', 'Streamlit']
-    },
-    {
-      id: 3,
-      title: 'Stock Price Prediction',
-      description: 'This project focuses on predicting stock prices using historical data and ML models, aiding investors in making informed trading decisions.',
-      image: 'Assets/Images/Project/stock price.jpeg',
-      link: 'https://github.com/VisionExpo/Stock_price_prediction',
-      techStack: ['Machine Learning', 'LSTM', 'Python', 'Pandas']
-    }
-  ];
+// TEMP data — replace with src/data/projects.js later if you haven't yet
+const projects = [
+  {
+    title: "Chicken Disease Detection",
+    description:
+      "CNN-based image classification system for detecting poultry diseases from visual symptoms.",
+    image: "/assets/Images/Project/chicken_disease_detection.jpg",
+    tech: ["CNN", "TensorFlow", "Computer Vision"],
+    github: "https://github.com/your-username/chicken-disease-detection"
+  },
+  {
+    title: "Solar Panel Fault Detection",
+    description:
+      "Machine learning system for identifying and classifying faults in solar panels.",
+    image: "/assets/Images/Project/solar_panel_fault_dection.jpg",
+    tech: ["Machine Learning", "Fault Detection"],
+    github: "https://github.com/your-username/solar-panel-fault-detection"
+  }
+];
 
+export default function Projects() {
   return (
-    <div className="section-bg">
-      <div className="container">
-        <h2 className="mb-5 text-center">Projects</h2>
-        <div className="row">
-          {projects.map(project => <ProjectCard key={project.id} project={project} />)}
-        </div>
+    <section className="projects-section">
+      <div className="projects-header">
+        <h2 className="projects-title">Projects</h2>
+        <p className="projects-subtitle">
+          Selected systems I’ve built across computer vision, ML, and applied AI.
+        </p>
       </div>
-    </div>
-  );
-};
 
-export default Projects;
+      <div className="projects-grid">
+        {projects.map((project) => (
+          <ProjectCard key={project.title} project={project} />
+        ))}
+      </div>
+    </section>
+  );
+}
