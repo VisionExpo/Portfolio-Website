@@ -1,4 +1,16 @@
 /* =====================
+   IMPORTS
+   ===================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap');
+@import "./hero.css";
+@import "./navbar.css";
+@import "./projects.css";
+@import "./skills.css";
+@import "./contact.css";
+@import "./sponsor.css";
+
+/* =====================
    DESIGN TOKENS
    ===================== */
 
@@ -17,8 +29,6 @@
 /* =====================
    GLOBAL STYLES
    ===================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap');
 
 body {
   margin: 0;
@@ -51,9 +61,3 @@ button:focus {
 .mono-text {
   font-family: var(--font-mono);
 }
-
-/* =====================
-   SECTION STYLES
-   ===================== */
-
-@import "./hero.css";

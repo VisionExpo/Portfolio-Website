@@ -7,7 +7,7 @@ const projects = [
     title: "Chicken Disease Detection",
     description:
       "CNN-based image classification system for detecting poultry diseases from visual symptoms.",
-    image: "/assets/Images/Project/chicken_disease_detection.jpg",
+    image: "/Assets/Images/Project/chicken_disease_detection.jpg",
     tech: ["CNN", "TensorFlow", "Computer Vision"],
     github: "https://github.com/your-username/chicken-disease-detection"
   },
@@ -15,7 +15,7 @@ const projects = [
     title: "Solar Panel Fault Detection",
     description:
       "Machine learning system for identifying and classifying faults in solar panels.",
-    image: "/assets/Images/Project/solar_panel_fault_dection.jpg",
+    image: "/Assets/Images/Project/solar_panel_fault_dection.jpg",
     tech: ["Machine Learning", "Fault Detection"],
     github: "https://github.com/your-username/solar-panel-fault-detection"
   }
