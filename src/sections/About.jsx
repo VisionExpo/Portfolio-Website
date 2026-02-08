@@ -25,13 +25,13 @@ const About = () => {
             <div className="row mt-4">
               <div className="col-6">
                 <div className="d-flex align-items-center mb-3">
-                  <i className="fas fa-code mr-3" style={{ color: 'var(--neon-green)' }}></i>
+                  <i className="fas fa-code me-3" style={{ color: 'var(--neon-green)' }}></i>
                   <span>System Design</span>
                 </div>
               </div>
               <div className="col-6">
                 <div className="d-flex align-items-center mb-3">
-                  <i className="fas fa-brain mr-3" style={{ color: 'var(--neon-green)' }}></i>
+                  <i className="fas fa-brain me-3" style={{ color: 'var(--neon-green)' }}></i>
                   <span>Deep Learning</span>
                 </div>
               </div>
