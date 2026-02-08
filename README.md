@@ -1,158 +1,16 @@
-# Vishal Gorule — AI Systems Engineer Portfolio
+# React + Vite
 
-A modern, cyberpunk-themed personal portfolio built as a **production-grade React application**, showcasing my work in AI systems, machine learning, and applied engineering.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-This portfolio itself is designed as a real system — clean architecture, reusable components, and automated deployment.
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🌐 Live Website
+## React Compiler
 
-👉 **[https://portfolio-website-ugwq.onrender.com/](https://portfolio-website-ugwq.onrender.com/)**
-*(Automatically deployed on every push to `main`)*
+The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
 
----
+## Expanding the ESLint configuration
 
-## 🧠 What This Is
-
-This is **not** a static HTML site or a template.
-
-It is:
-
-* A **React + Vite** single-page application
-* Fully component-driven
-* Styled with a custom **cyberpunk / futuristic design system**
-* Deployed via **CI/CD (GitHub Actions + Render)**
-
-The goal was to build something that reflects how I approach real systems:
-
-> intentional structure, minimal noise, and production thinking.
-
----
-
-## 🧩 Features
-
-* ⚛️ **React + Vite** (fast, modern frontend stack)
-* 🎨 **Custom cyberpunk UI** (dark theme, neon green accents)
-* 🧱 **Reusable components** (Hero, Projects, Skills, Navbar, Contact)
-* 📦 **Data-driven sections**
-* 🚀 **CI/CD enabled**
-
-  * Push to `main` → build → deploy automatically
-* 📱 Fully responsive
-* ♿ Accessible focus states and keyboard navigation
-
----
-
-## 🏗️ Tech Stack
-
-**Frontend**
-
-* React
-* Vite
-* CSS (modular, component-scoped)
-* Framer Motion
-
-**DevOps**
-
-* GitHub Actions (CI)
-* Render (CD & hosting)
-
----
-
-## 📂 Project Structure
-
-```text
-portfolio/
-├── public/
-│   └── assets/
-│       ├── icons/
-│       ├── images/
-│       └── resume/
-│
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── Hero.jsx
-│   │   ├── ProjectCard.jsx
-│   │   └── SkillCard.jsx
-│   │
-│   ├── sections/
-│   │   ├── About.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Skills.jsx
-│   │   └── Contact.jsx
-│   │
-│   ├── styles/
-│   │   ├── base.css
-│   │   ├── hero.css
-│   │   ├── project-card.css
-│   │   ├── projects.css
-│   │   ├── skills.css
-│   │   ├── navbar.css
-│   │   └── contact.css
-│   │
-│   ├── App.jsx
-│   └── main.jsx
-│
-├── index.html
-├── render.yaml
-└── .github/workflows/deploy.yml
-```
-
----
-
-## 🔄 CI/CD Workflow
-
-The site uses **continuous integration and deployment**:
-
-1. Code pushed to `main`
-2. GitHub Actions runs build (`npm run build`)
-3. Render automatically deploys the latest build
-
-This ensures:
-
-* Zero manual publishing
-* Always-live latest version
-* Clean rollback path
-
----
-
-## 🛠️ Local Development
-
-```bash
-npm install
-npm run dev
-```
-
-Runs locally at:
-
-```
-http://localhost:5173
-```
-
----
-
-## 🎯 Design Philosophy
-
-* Minimal but expressive
-* Motion only when it adds meaning
-* No visual noise, no fake metrics
-* UI should feel like a **systems dashboard**, not a landing page
-
----
-
-## 📬 Connect With Me
-
-* 🌐 Portfolio: [https://portfolio-website-ugwq.onrender.com/](https://portfolio-website-ugwq.onrender.com/)
-* 🧑‍💻 GitHub: [https://github.com/VisionExpo](https://github.com/VisionExpo)
-* 💼 LinkedIn: [https://www.linkedin.com/in/vishal-gorule/](https://www.linkedin.com/in/vishal-gorule/)
-* ✍️ Medium: [https://medium.com/@gorulevishal984](https://medium.com/@gorulevishal984)
-* 📸 Instagram: `@vishu_gorule_0909`
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**.
-
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
